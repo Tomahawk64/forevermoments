@@ -24,6 +24,7 @@ export default function Hero() {
   })
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [particles, setParticles] = useState<Array<{ x: string; y: string; duration: number; delay: number; distance: number }>>([])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -35,6 +36,18 @@ export default function Hero() {
 
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
+  useEffect(() => {
+    setParticles(
+      [...Array(15)].map(() => ({
+        x: Math.random() * 100 + '%',
+        y: Math.random() * 100 + '%',
+        duration: Math.random() * 12 + 12,
+        delay: Math.random() * 5,
+        distance: Math.random() * -80,
+      }))
+    )
   }, [])
 
   const scrollToPortfolio = () => {
@@ -56,7 +69,7 @@ export default function Hero() {
           style={{ x: mousePosition.x, y: mousePosition.y }}
           className="absolute inset-0 bg-gradient-to-br from-background via-charcoal to-background"
         >
-          <div className="absolute inset-0 bg-[url('/assets/wildlife-photography_wide-WideImage_16-9-67a37a8262afb.webp')] bg-cover bg-center opacity-50" />
+          <div className="absolute inset-0 bg-[url('/assets/IMG_1194.JPG.jpeg')] bg-cover bg-center opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
         </motion.div>
@@ -67,23 +80,23 @@ export default function Hero() {
 
       {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-0.5 h-0.5 bg-gold/15 rounded-full"
             initial={{
-              x: Math.random() * 100 + '%',
-              y: Math.random() * 100 + '%',
+              x: particle.x,
+              y: particle.y,
               opacity: 0,
             }}
             animate={{
-              y: [null, Math.random() * -80 + '%'],
+              y: [null, particle.distance + '%'],
               opacity: [0, 0.4, 0],
             }}
             transition={{
-              duration: Math.random() * 12 + 12,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 5,
+              delay: particle.delay,
             }}
           />
         ))}

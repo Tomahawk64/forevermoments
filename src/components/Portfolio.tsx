@@ -10,18 +10,18 @@ import ImageReveal from './ui/ImageReveal'
 import SplitText from './ui/SplitText'
 
 const portfolioImages = [
-  { id: 1, src: '/assets/6797344ddd248_2gx7ek35mmee1-jpeg__700.webp', category: 'Wedding', title: 'Royal Palace Wedding', location: 'Udaipur' },
-  { id: 2, src: '/assets/67974a46729b5_wildlife-photography.webp', category: 'Pre Wedding', title: 'Golden Hour Romance', location: 'Jaipur' },
-  { id: 3, src: '/assets/A-Different-Perspective-by-Bingqian-Gao-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp', category: 'Destination', title: 'Udaipur Dreams', location: 'Lake Palace' },
-  { id: 4, src: '/assets/After-The-Rain-by-Nikita-Chicherin-The-Nature-Photography-Contest-2025-Birds-Finalist.webp', category: 'Engagement', title: 'Beach Proposal', location: 'Goa' },
-  { id: 5, src: '/assets/Amplified-Intimidation-by-Tom-Hendrickson-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp', category: 'Wedding', title: 'Traditional Ceremony', location: 'Delhi' },
-  { id: 6, src: '/assets/Bret-Saalwaechter_I-Just-Cant-Wait-To-Be-King.webp', category: 'Luxury Events', title: 'Grand Reception', location: 'Mumbai' },
-  { id: 7, src: '/assets/Defiance-of-the-Small-by-Panagiotis-Xaxiris-The-Nature-Photography-Contest-2025-Birds-Finalist.webp', category: 'Couple Portraits', title: 'Intimate Moments', location: 'Bangalore' },
-  { id: 8, src: '/assets/Landing-by-Simone-Bottini-The-Nature-Photography-Contest-2025-Night-World-Finalist.webp', category: 'Night Photography', title: 'Evening Celebration', location: 'Hyderabad' },
-  { id: 9, src: '/assets/Mark-Meth-Cohn_Aaaaaww-Mum.webp', category: 'Wedding', title: 'Bridal Portrait', location: 'Chennai' },
-  { id: 10, src: '/assets/Seatbelt_check__by_Graeme_Guy__The_Nature_Photography_Contest_2025_Funny_Nature__Finalist.webp', category: 'Drone', title: 'Aerial View', location: 'Kerala' },
-  { id: 11, src: '/assets/Shes-Mine-Back-Off-by-Jill-Hill-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp', category: 'Pre Wedding', title: 'Forest Romance', location: 'Coorg' },
-  { id: 12, src: '/assets/The-Chorus-of-Silence-by-Thomas-Andy-Branson-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp', category: 'Wedding', title: 'Sacred Vows', location: 'Varanasi' },
+  { id: 1, src: '/assets/IMG_1194.JPG.jpeg', category: 'Wedding', title: 'Royal Palace Wedding', location: 'Udaipur' },
+  { id: 2, src: '/assets/IMG_1195.JPG.jpeg', category: 'Pre Wedding', title: 'Golden Hour Romance', location: 'Jaipur' },
+  { id: 3, src: '/assets/IMG_1176.JPG.jpeg', category: 'Destination', title: 'Udaipur Dreams', location: 'Lake Palace' },
+  { id: 4, src: '/assets/IMG_1165.JPG.jpeg', category: 'Engagement', title: 'Beach Proposal', location: 'Goa' },
+  { id: 5, src: '/assets/IMG_1166.JPG.jpeg', category: 'Wedding', title: 'Traditional Ceremony', location: 'Delhi' },
+  { id: 6, src: '/assets/IMG_1521.JPG.jpeg', category: 'Luxury Events', title: 'Grand Reception', location: 'Mumbai' },
+  { id: 7, src: '/assets/IMG_1524.JPG.jpeg', category: 'Couple Portraits', title: 'Intimate Moments', location: 'Bangalore' },
+  { id: 8, src: '/assets/IMG_1495.JPG.jpeg', category: 'Night Photography', title: 'Evening Celebration', location: 'Hyderabad' },
+  { id: 9, src: '/assets/IMG_1496.JPG.jpeg', category: 'Wedding', title: 'Bridal Portrait', location: 'Chennai' },
+  { id: 10, src: '/assets/IMG_1520.JPG.jpeg', category: 'Drone', title: 'Aerial View', location: 'Kerala' },
+  { id: 11, src: '/assets/6797344ddd248_2gx7ek35mmee1-jpeg__700.webp', category: 'Pre Wedding', title: 'Forest Romance', location: 'Coorg' },
+  { id: 12, src: '/assets/67974a46729b5_wildlife-photography.webp', category: 'Wedding', title: 'Sacred Vows', location: 'Varanasi' },
 ]
 
 const categories = ['All', 'Wedding', 'Pre Wedding', 'Destination', 'Luxury Events', 'Engagement', 'Couple Portraits', 'Drone', 'Night Photography']

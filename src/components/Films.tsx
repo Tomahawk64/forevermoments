@@ -10,53 +10,59 @@ import MagneticButton from './ui/MagneticButton'
 const films = [
   {
     id: 1,
-    title: 'The Royal Affair',
-    category: 'Wedding Film',
-    duration: '4:32',
-    thumbnail: '/assets/6797344ddd248_2gx7ek35mmee1-jpeg__700.webp',
-    description: 'A grand celebration at Udaipur City Palace',
-    year: '2024'
+    title: 'Ashutosh & Kanchan',
+    category: 'Pre Wedding',
+    duration: 'Full Film',
+    thumbnail: '/assets/IMG_1194.JPG.jpeg',
+    description: 'A beautiful pre-wedding journey in Udaipur 2024',
+    year: '2024',
+    videoUrl: 'https://pub-95106b4991374084915471d455a8d003.r2.dev/Ashutosh%20%26%20Kanchan%20__%20Pre%20Wedding%20__%202024%20__%20Udaipur%20__.mp4'
   },
   {
     id: 2,
-    title: 'Mountain Love',
-    category: 'Luxury Wedding',
-    duration: '5:15',
-    thumbnail: '/assets/67974a46729b5_wildlife-photography.webp',
-    description: 'Destination wedding in the Himalayas',
-    year: '2024'
+    title: 'Haldi Carnival',
+    category: 'Wedding Film',
+    duration: 'Highlights',
+    thumbnail: '/assets/IMG_1195.JPG.jpeg',
+    description: 'When Love Gets Colourful - Vibrant Haldi celebrations',
+    year: '2024',
+    videoUrl: 'https://pub-95106b4991374084915471d455a8d003.r2.dev/Haldi%20Carnival%F0%9F%92%9B_%20When%20Loves%20Get%20Colourful%20%F0%9F%92%95.mp4'
   },
   {
     id: 3,
-    title: 'Above the Clouds',
-    category: 'Drone Story',
-    duration: '3:48',
-    thumbnail: '/assets/A-Different-Perspective-by-Bingqian-Gao-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp',
-    description: 'Aerial cinematography masterpiece',
-    year: '2023'
+    title: 'Groom Entry',
+    category: 'Wedding Film',
+    duration: 'Reel',
+    thumbnail: '/assets/IMG_1176.JPG.jpeg',
+    description: 'He Didn\'t Just Get Ready. He Arrived - Epic Groom Entry',
+    year: '2024',
+    videoUrl: 'https://pub-95106b4991374084915471d455a8d003.r2.dev/He%20Didn%E2%80%99t%20Just%20Get%20Ready.%20He%20Arrived%20%F0%9F%94%A5_%20Groom%20Reel.mp4'
   },
   {
     id: 4,
-    title: 'First Look',
-    category: 'Couple Story',
-    duration: '2:56',
-    thumbnail: '/assets/After-The-Rain-by-Nikita-Chicherin-The-Nature-Photography-Contest-2025-Birds-Finalist.webp',
-    description: 'Emotional first moment together',
-    year: '2024'
+    title: 'Soulmates in the Making',
+    category: 'Pre Wedding',
+    duration: 'Teaser',
+    thumbnail: '/assets/IMG_1165.JPG.jpeg',
+    description: 'A beautiful love story teaser - Soulmates in the Making',
+    year: '2024',
+    videoUrl: 'https://pub-95106b4991374084915471d455a8d003.r2.dev/Soulmates%20in%20the%20Making%20%23preweddingteaser%20%23lovestory%20%23love%20%23shorts%20%23shortsfeed%20%23short%20%23youtubeshorts.mp4'
   },
   {
     id: 5,
-    title: 'The Celebration',
-    category: 'Emotional Highlights',
-    duration: '6:20',
-    thumbnail: '/assets/Amplified-Intimidation-by-Tom-Hendrickson-The-Nature-Photography-Contest-2025-Wildlife-Finalist.webp',
-    description: 'Best moments from the wedding day',
-    year: '2024'
+    title: 'From Pheras To First Dance',
+    category: 'Wedding Highlights',
+    duration: '50 Seconds',
+    thumbnail: '/assets/IMG_1166.JPG.jpeg',
+    description: 'A Love Story in 50 Seconds - Complete wedding journey',
+    year: '2024',
+    videoUrl: 'https://pub-95106b4991374084915471d455a8d003.r2.dev/%E2%80%9CFrom%20Pheras%20To%20First%20Dance%20-%20A%20Love%20Story%20In%2050%20Seconds%20%F0%9F%92%8D%F0%9F%94%A5%E2%80%9D.mp4'
   },
 ]
 
 export default function Films() {
   const [hoveredFilm, setHoveredFilm] = useState<number | null>(null)
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null)
 
   return (
     <section id="films" className="section-padding bg-charcoal/30">
@@ -94,33 +100,47 @@ export default function Films() {
             >
               <GlowCard className="p-0 overflow-hidden">
                 <div className="relative aspect-video overflow-hidden">
-                  {/* Thumbnail */}
-                  <motion.div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${film.thumbnail})` }}
-                    animate={{ scale: hoveredFilm === film.id ? 1.1 : 1 }}
-                    transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  />
-                  
-                  {/* Netflix-style overlay */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"
-                    initial={{ opacity: 0.4 }}
-                    animate={{ opacity: hoveredFilm === film.id ? 0.2 : 0.4 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  
-                  {/* Play Button - Netflix style */}
-                  <motion.div
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={hoveredFilm === film.id ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <div className="w-24 h-24 rounded-full bg-gold flex items-center justify-center shadow-[0_0_60px_rgba(201,169,98,0.5)]">
-                      <Play className="text-background ml-2" size={36} fill="currentColor" />
-                    </div>
-                  </motion.div>
+                  {playingVideo === film.videoUrl ? (
+                    <video
+                      src={film.videoUrl}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-cover"
+                      onEnded={() => setPlayingVideo(null)}
+                    />
+                  ) : (
+                    <>
+                      {/* Thumbnail */}
+                      <motion.div
+                        className="absolute inset-0 bg-cover bg-center cursor-pointer"
+                        style={{ backgroundImage: `url(${film.thumbnail})` }}
+                        animate={{ scale: hoveredFilm === film.id ? 1.1 : 1 }}
+                        transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        onClick={() => setPlayingVideo(film.videoUrl)}
+                      />
+                      
+                      {/* Netflix-style overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent"
+                        initial={{ opacity: 0.4 }}
+                        animate={{ opacity: hoveredFilm === film.id ? 0.2 : 0.4 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      
+                      {/* Play Button - Netflix style */}
+                      <motion.div
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={hoveredFilm === film.id ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                        onClick={() => setPlayingVideo(film.videoUrl)}
+                      >
+                        <div className="w-24 h-24 rounded-full bg-gold flex items-center justify-center shadow-[0_0_60px_rgba(201,169,98,0.5)]">
+                          <Play className="text-background ml-2" size={36} fill="currentColor" />
+                        </div>
+                      </motion.div>
+                    </>
+                  )}
 
                   {/* Progress bar animation */}
                   <motion.div

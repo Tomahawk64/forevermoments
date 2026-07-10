@@ -21,7 +21,7 @@ export default function OurStory() {
             className="relative"
           >
             <div className="aspect-[3/4] overflow-hidden rounded-lg">
-              <ImageReveal src="/assets/Mark-Meth-Cohn_Aaaaaww-Mum.webp" alt="Our Story" className="w-full h-full" />
+              <ImageReveal src="/assets/IMG_1195.JPG.jpeg" alt="Our Story" className="w-full h-full" />
             </div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
