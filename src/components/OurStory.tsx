@@ -9,8 +9,12 @@ import ImageReveal from './ui/ImageReveal'
 
 export default function OurStory() {
   return (
-    <section id="story" className="section-padding bg-background">
-      <div className="container-custom">
+    <section id="story" className="section-padding bg-gradient-luxury-soft relative overflow-hidden">
+      {/* Gradient Blobs */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
           <motion.div
@@ -20,15 +24,19 @@ export default function OurStory() {
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative"
           >
-            <div className="aspect-[3/4] overflow-hidden rounded-lg">
-              <ImageReveal src="/assets/IMG_1195.JPG.jpeg" alt="Our Story" className="w-full h-full" />
+            <div className="aspect-[3/4] overflow-hidden rounded-luxury shadow-luxury">
+              <img
+                src="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/6.jpg"
+                alt="Our Story"
+                className="w-full h-full object-cover"
+              />
             </div>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="absolute -bottom-6 -right-6 w-48 h-48 border border-gold/30 rounded-lg -z-10"
+              className="absolute -bottom-8 -right-8 w-48 h-48 border-2 border-primary/20 rounded-luxury -z-10"
             />
           </motion.div>
 
@@ -39,14 +47,14 @@ export default function OurStory() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-gold tracking-[0.4em] text-xs uppercase mb-6">Our Journey</p>
+            <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Our Journey</p>
             <SplitText
               text="Our Story"
-              className="font-heading text-4xl md:text-5xl lg:text-6xl font-light text-warmWhite mb-10"
+              className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-10"
               delay={0.1}
             />
 
-            <div className="space-y-6 text-warmWhite/70 leading-relaxed">
+            <div className="space-y-6 text-textLight leading-relaxed text-lg">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +76,7 @@ export default function OurStory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-warmWhite/90"
+                className="text-text"
               >
                 Our approach is simple: we become invisible observers, capturing authentic moments that unfold naturally. We don't pose; we preserve.
               </motion.p>
@@ -93,13 +101,13 @@ export default function OurStory() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
-                    className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0"
+                    className="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-300"
                   >
-                    <item.icon className="text-gold w-6 h-6" />
+                    <item.icon className="text-background w-6 h-6" />
                   </motion.div>
                   <div>
-                    <h4 className="font-heading text-lg text-warmWhite mb-2">{item.title}</h4>
-                    <p className="text-warmWhite/60 text-sm">{item.desc}</p>
+                    <h4 className="font-heading text-lg text-text mb-2 font-light">{item.title}</h4>
+                    <p className="text-textLight text-sm">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -111,9 +119,9 @@ export default function OurStory() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="mt-12 p-8 border-l-2 border-gold/30"
+              className="mt-12 p-10 border-l-4 border-primary/30 bg-white/50 backdrop-blur-glass rounded-r-luxury"
             >
-              <p className="font-heading text-2xl text-warmWhite/90 italic leading-relaxed">
+              <p className="font-heading text-2xl md:text-3xl text-text italic leading-relaxed font-light">
                 "We don't create photographs. We preserve legacies."
               </p>
             </motion.div>

@@ -71,9 +71,9 @@ export default function LoadingScreen() {
               </h1>
               
               {/* Elegant progress line */}
-              <div className="w-64 h-px bg-charcoal overflow-hidden mx-auto mb-8">
+              <div className="w-64 h-px bg-surface overflow-hidden mx-auto mb-8">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-gold via-goldLight to-gold"
+                  className="h-full bg-gradient-to-r from-primary via-goldLight to-gold"
                   initial={{ width: '0%' }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0 }}
@@ -85,7 +85,7 @@ export default function LoadingScreen() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="text-xs tracking-[0.4em] text-gold/50 uppercase"
+                className="text-xs tracking-[0.4em] text-primary/50 uppercase"
               >
                 Crafting Timeless Stories
               </motion.p>

@@ -1,10 +1,19 @@
 'use client'
 
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import MagneticButton from './ui/MagneticButton'
 import SplitText from './ui/SplitText'
+
+const HERO_IMAGES = [
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero1.jpg',
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero2.jpg',
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero3.jpg',
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero4.jpg',
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero5.jpg',
+  'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero6.jpg',
+]
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -23,31 +32,13 @@ export default function Hero() {
     damping: 25,
   })
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [particles, setParticles] = useState<Array<{ x: string; y: string; duration: number; delay: number; distance: number }>>([])
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 15,
-        y: (e.clientY / window.innerHeight - 0.5) * 15,
-      })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
-  useEffect(() => {
-    setParticles(
-      [...Array(15)].map(() => ({
-        x: Math.random() * 100 + '%',
-        y: Math.random() * 100 + '%',
-        duration: Math.random() * 12 + 12,
-        delay: Math.random() * 5,
-        distance: Math.random() * -80,
-      }))
-    )
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+    }, 6000)
+    return () => clearInterval(interval)
   }, [])
 
   const scrollToPortfolio = () => {
@@ -60,47 +51,37 @@ export default function Hero() {
 
   return (
     <section id="home" ref={ref} className="relative h-screen overflow-hidden">
-      {/* Video Background with Parallax */}
+      {/* Hero Image Slider with Ken Burns Effect */}
       <motion.div
         style={{ opacity, scale }}
         className="absolute inset-0"
       >
-        <motion.div
-          style={{ x: mousePosition.x, y: mousePosition.y }}
-          className="absolute inset-0 bg-gradient-to-br from-background via-charcoal to-background"
-        >
-          <div className="absolute inset-0 bg-[url('/assets/IMG_1194.JPG.jpeg')] bg-cover bg-center opacity-50" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="absolute inset-0"
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${HERO_IMAGES[currentImageIndex]})` }}
+            />
+            {/* Dark Luxury Gradient Overlays */}
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(25,15,40,0.45), rgba(255,255,255,0.08))' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.15), transparent)' }} />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
       {/* Cinematic Vignette */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse at center, transparent 0%, rgba(13, 13, 13, 0.35) 70%, rgba(13, 13, 13, 0.7) 100%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse at center, transparent 0%, rgba(25,15,40,0.3) 100%)]" />
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((particle, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-0.5 h-0.5 bg-gold/15 rounded-full"
-            initial={{
-              x: particle.x,
-              y: particle.y,
-              opacity: 0,
-            }}
-            animate={{
-              y: [null, particle.distance + '%'],
-              opacity: [0, 0.4, 0],
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay,
-            }}
-          />
-        ))}
-      </div>
+      {/* Gradient Blobs for depth */}
+      <div className="absolute top-20 left-20 w-96 h-96 bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-primaryLight/6 rounded-full blur-[100px] pointer-events-none" />
 
       {/* Content */}
       <motion.div
@@ -110,21 +91,21 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 3.2 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
           className="mb-8"
         >
-          <p className="text-gold tracking-[0.35em] text-[0.7rem] uppercase">Luxury Wedding Photography & Cinematography</p>
+          <p className="text-primaryLight tracking-[0.35em] text-xs uppercase font-medium drop-shadow-lg">Luxury Wedding Photography & Cinematography</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 3.4 }}
+          transition={{ duration: 1.5, delay: 0.7 }}
           className="mb-12"
         >
           <SplitText
             text="FOREVER MOMENTS"
-            className="font-heading text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-light tracking-[0.2em] text-warmWhite leading-tight"
+            className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.15em] text-white leading-[0.9] drop-shadow-2xl"
             delay={0}
           />
         </motion.div>
@@ -132,10 +113,10 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 3.6 }}
+          transition={{ duration: 1.5, delay: 0.9 }}
           className="mb-16"
         >
-          <p className="font-heading text-lg md:text-xl lg:text-2xl text-warmWhite/70 max-w-3xl leading-relaxed tracking-wide">
+          <p className="font-heading text-xl md:text-2xl lg:text-3xl text-white/95 max-w-3xl leading-relaxed tracking-wide font-light drop-shadow-lg">
             Crafting timeless wedding stories
           </p>
         </motion.div>
@@ -143,38 +124,21 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 3.8 }}
+          transition={{ duration: 1.5, delay: 1.1 }}
           className="flex flex-col sm:flex-row gap-5"
         >
           <MagneticButton
             onClick={scrollToFilms}
-            className="px-12 py-4 bg-gradient-to-r from-gold to-goldLight text-background text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:shadow-[0_0_35px_rgba(201,169,98,0.25)] transition-shadow duration-500"
+            className="px-14 py-5 bg-gradient-to-r from-primary to-primaryDark text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button shadow-luxury hover:shadow-glow hover:-translate-y-1 hover:scale-105 transition-all duration-400"
           >
             Watch Films
           </MagneticButton>
           <MagneticButton
             onClick={scrollToPortfolio}
-            className="px-12 py-4 border border-gold/40 text-gold text-xs tracking-[0.25em] uppercase font-medium rounded-sm hover:bg-gold/10 transition-colors duration-500"
+            className="px-14 py-5 border-2 border-white/80 text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-white/20 hover:border-white hover:shadow-glow hover:-translate-y-1 transition-all duration-400 backdrop-blur-sm"
           >
             View Portfolio
           </MagneticButton>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 4 }}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-[0.65rem] tracking-[0.25em] text-warmWhite/40 uppercase">Scroll</span>
-          <ChevronDown className="text-gold/50" size={18} />
         </motion.div>
       </motion.div>
 

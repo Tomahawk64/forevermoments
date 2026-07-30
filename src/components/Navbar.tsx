@@ -18,12 +18,10 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Wedding', href: '#portfolio' },
     { name: 'Films', href: '#films' },
+    { name: 'Family', href: '#family' },
     { name: 'Services', href: '#services' },
-    { name: 'Our Story', href: '#story' },
-    { name: 'Forever Memories', href: '#memories' },
-    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -66,8 +64,8 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-700',
           isScrolled
-            ? 'bg-background/85 backdrop-blur-xl border-b border-white/5 py-4'
-            : 'bg-transparent py-5'
+            ? 'bg-white/85 backdrop-blur-luxury border-b border-primary/20 shadow-luxury py-4'
+            : 'bg-transparent py-6'
         )}
       >
         <div className="container-custom">
@@ -76,7 +74,7 @@ export default function Navbar() {
               href="#home"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 3, duration: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
               className="font-heading text-xl md:text-2xl font-light tracking-[0.15em] text-gradient hover:opacity-80 transition-opacity duration-300"
             >
               FOREVER MOMENTS
@@ -88,7 +86,7 @@ export default function Navbar() {
                   key={item.name}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 3 + index * 0.05, duration: 0.8 }}
+                  transition={{ delay: 0.5 + index * 0.05, duration: 0.8 }}
                   className="relative group"
                 >
                   <a
@@ -98,20 +96,20 @@ export default function Navbar() {
                       scrollToSection(item.href)
                     }}
                     className={cn(
-                      'text-[0.7rem] tracking-[0.2em] uppercase transition-colors duration-300 relative py-2',
+                      'text-xs tracking-[0.2em] uppercase transition-all duration-400 relative py-2 font-medium',
                       activeSection === item.href.replace('#', '')
-                        ? 'text-gold'
-                        : 'text-warmWhite/60 hover:text-gold'
+                        ? 'text-primary'
+                        : 'text-textLight hover:text-primary'
                     )}
                   >
                     {item.name}
                     {/* Animated underline */}
                     <motion.div
                       className={cn(
-                        'absolute bottom-0 left-0 h-px bg-gradient-to-r from-gold to-goldLight',
+                        'absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary to-primaryDark',
                         activeSection === item.href.replace('#', '') ? 'w-full' : 'w-0 group-hover:w-full'
                       )}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                     />
                   </a>
                 </motion.div>
@@ -120,7 +118,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden text-warmWhite hover:text-gold transition-colors duration-300"
+              className="lg:hidden text-text hover:text-primary transition-colors duration-300"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -136,7 +134,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-luxury lg:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full space-y-10">
               {navItems.map((item, index) => (
@@ -152,8 +150,8 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: 30 }}
                   transition={{ delay: index * 0.05 }}
                   className={cn(
-                    'font-heading text-3xl text-warmWhite hover:text-gold transition-colors duration-300',
-                    activeSection === item.href.replace('#', '') && 'text-gold'
+                    'font-heading text-3xl text-text hover:text-primary transition-colors duration-400 font-light',
+                    activeSection === item.href.replace('#', '') && 'text-primary'
                   )}
                 >
                   {item.name}

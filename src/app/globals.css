@@ -4,13 +4,24 @@
 
 @layer base {
   :root {
-    --background: #0D0D0D;
-    --charcoal: #1A1A1A;
-    --gold: #C9A962;
-    --goldLight: #D4B978;
-    --warmWhite: #F5F5F0;
+    --background: #FAFAFC;
+    --surface: #F7F3FF;
+    --surfaceLight: #F4E8FF;
+    --surfaceLighter: #F6F4FA;
+    --primary: #CB94F7;
+    --primaryLight: #D8AFFF;
+    --primaryDark: #A76DFF;
+    --primaryDeep: #7C3AED;
+    --accent: #E9D6FF;
+    --text: #1F1235;
+    --textLight: #2E1A47;
+    --textMuted: #6B4C7A;
+    --textSoft: #9B7AA8;
+    --luxuryDark: #24153D;
+    --luxuryCream: #F7F4FF;
+    --luxuryLavender: #EDD8FF;
     
-    /* Spacing scale */
+    /* Spacing scale - 8px system */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
@@ -18,12 +29,17 @@
     --spacing-xl: 3rem;
     --spacing-2xl: 4rem;
     --spacing-3xl: 6rem;
+    --spacing-4xl: 8rem;
+    --spacing-5xl: 10rem;
     
-    /* Border radius */
-    --radius-sm: 0.125rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 1rem;
-    --radius-xl: 1.5rem;
+    /* Border radius - luxury rounded */
+    --radius-sm: 0.5rem;
+    --radius-md: 1rem;
+    --radius-lg: 1.5rem;
+    --radius-xl: 1.75rem;
+    --radius-luxury: 1.5rem;
+    --radius-button: 0.875rem;
+    --radius-input: 1rem;
     
     /* Animation timing */
     --duration-fast: 0.3s;
@@ -37,10 +53,12 @@
   }
 
   body {
-    @apply bg-background text-warmWhite;
+    @apply bg-background text-text;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+    line-height: 1.7;
   }
 
   html {
@@ -57,62 +75,86 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gold/20 rounded-full;
+    @apply bg-primary/30 rounded-full;
     transition: background-color var(--duration-fast) var(--ease-smooth);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gold/40;
+    @apply bg-primary/50;
   }
 
   /* Selection - refined */
   ::selection {
-    @apply bg-gold/20 text-warmWhite;
+    @apply bg-primary/20 text-text;
   }
 
   /* Focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid var(--primary);
     outline-offset: 2px;
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-charcoal/30 backdrop-blur-xl border border-white/5;
+    @apply bg-white/70 backdrop-blur-glass border border-primary/20;
   }
 
   .glass-card {
-    @apply glass rounded-xl p-8 transition-all duration-500;
+    @apply glass rounded-luxury p-8 transition-all duration-500 shadow-luxury;
+  }
+
+  .glass-card-dark {
+    @apply bg-white/10 backdrop-blur-glass border border-white/10 rounded-luxury p-8 transition-all duration-500;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-gold to-goldLight bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-primaryDark bg-clip-text text-transparent;
+  }
+
+  .text-gradient-luxury {
+    @apply bg-gradient-luxury bg-clip-text text-transparent;
   }
 
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-20 md:py-32 lg:py-40;
+    @apply px-6 md:px-12 lg:px-24 py-[60px] md:py-[80px] lg:py-[120px];
+  }
+
+  .section-padding-sm {
+    @apply px-6 md:px-12 lg:px-24 py-[40px] md:py-[60px] lg:py-[80px];
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-24;
   }
 
-  /* Typography utilities */
+  /* Typography utilities - luxury */
   .heading-xl {
-    @apply font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[0.15em] leading-tight;
+    @apply font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-[0.1em] leading-tight;
   }
   
   .heading-lg {
-    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.15em] leading-tight;
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.1em] leading-tight;
   }
   
   .heading-md {
-    @apply font-heading text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.12em] leading-tight;
+    @apply font-heading text-3xl md:text-4xl lg:text-5xl font-light tracking-[0.08em] leading-tight;
   }
   
   .heading-sm {
-    @apply font-heading text-xl md:text-2xl lg:text-3xl font-light tracking-[0.1em] leading-tight;
+    @apply font-heading text-2xl md:text-3xl lg:text-4xl font-light tracking-[0.06em] leading-tight;
+  }
+  
+  .body-lg {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .body-md {
+    @apply text-base leading-relaxed;
+  }
+  
+  .body-sm {
+    @apply text-sm leading-relaxed;
   }
   
   .label {
