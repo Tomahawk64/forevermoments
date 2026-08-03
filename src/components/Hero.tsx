@@ -103,10 +103,13 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 0.7 }}
           className="mb-12"
         >
+          <div className="flex items-baseline justify-center">
+            <span className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl">4EVER</span>
+          </div>
           <SplitText
-            text="FOREVER MOMENTS"
-            className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.15em] text-white leading-[0.9] drop-shadow-2xl"
-            delay={0}
+            text="MOMENTS"
+            className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl"
+            delay={0.15}
           />
         </motion.div>
 
@@ -127,18 +130,40 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 1.1 }}
           className="flex flex-col sm:flex-row gap-5"
         >
-          <MagneticButton
-            onClick={scrollToFilms}
-            className="px-14 py-5 bg-gradient-to-r from-primary to-primaryDark text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button shadow-luxury hover:shadow-glow hover:-translate-y-1 hover:scale-105 transition-all duration-400"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            Watch Films
-          </MagneticButton>
-          <MagneticButton
-            onClick={scrollToPortfolio}
-            className="px-14 py-5 border-2 border-white/80 text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-white/20 hover:border-white hover:shadow-glow hover:-translate-y-1 transition-all duration-400 backdrop-blur-sm"
+            <MagneticButton
+              onClick={scrollToFilms}
+              className="px-14 py-5 bg-gradient-to-r from-primary to-primaryDark text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button shadow-luxury hover:shadow-glow hover:-translate-y-1 transition-all duration-400 relative overflow-hidden group"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              />
+              <span className="relative z-10">Watch Films</span>
+            </MagneticButton>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            View Portfolio
-          </MagneticButton>
+            <MagneticButton
+              onClick={scrollToPortfolio}
+              className="px-14 py-5 border-2 border-white/80 text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-white/20 hover:border-white hover:shadow-glow hover:-translate-y-1 transition-all duration-400 backdrop-blur-sm relative overflow-hidden group"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              />
+              <span className="relative z-10">View Portfolio</span>
+            </MagneticButton>
+          </motion.div>
         </motion.div>
       </motion.div>
 

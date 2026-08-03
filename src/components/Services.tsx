@@ -82,23 +82,50 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.8, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="group"
             >
-              <GlowCard className="glass-card p-8 group hover:shadow-glow hover:-translate-y-2 transition-all duration-500">
+              <GlowCard className="glass-card p-8 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-700 relative overflow-hidden">
+                {/* Gradient Border Effect */}
                 <motion.div
-                  className="mb-6"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 rounded-luxury border-2 border-primary/0"
+                  whileHover={{ borderColor: 'rgba(203, 148, 247, 0.3)' }}
+                  transition={{ duration: 0.4 }}
+                />
+                
+                {/* Light Sweep */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 opacity-0"
+                  whileHover={{ x: ['0%', '200%'], opacity: 1 }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  initial={{ x: '-100%' }}
+                />
+                
+                <motion.div
+                  className="mb-6 relative z-10"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center shadow-sm group-hover:shadow-glow transition-all duration-500">
                     <service.icon className="text-background w-7 h-7" />
                   </div>
                 </motion.div>
-                <h3 className="font-heading text-xl text-text mb-3 font-light group-hover:text-primary transition-colors duration-500 tracking-wide">
+                
+                <motion.h3 
+                  className="font-heading text-xl text-text mb-3 font-light group-hover:text-primary transition-colors duration-500 tracking-wide relative z-10"
+                  whileHover={{ x: 3 }}
+                  transition={{ duration: 0.3 }}
+                >
                   {service.title}
-                </h3>
-                <p className="text-textLight text-sm leading-relaxed">
+                </motion.h3>
+                
+                <motion.p 
+                  className="text-textLight text-sm leading-relaxed relative z-10"
+                  initial={{ opacity: 0.8 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
                   {service.description}
-                </p>
+                </motion.p>
               </GlowCard>
             </motion.div>
           ))}

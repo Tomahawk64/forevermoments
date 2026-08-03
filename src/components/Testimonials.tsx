@@ -15,7 +15,7 @@ const testimonials = [
     location: 'Udaipur Palace Wedding',
     date: 'December 2024',
     rating: 5,
-    text: 'Forever Moments transformed our wedding into a cinematic masterpiece. Every photo tells a story, every frame is a work of art. They didn\'t just capture our wedding; they captured our souls. The attention to detail was extraordinary.',
+    text: '4ever Moments transformed our wedding into a cinematic masterpiece. Every photo tells a story, every frame is a work of art. They didn\'t just capture our wedding; they captured our souls. The attention to detail was extraordinary.',
     image: 'https://ui-avatars.com/api/?name=Aarav+Priya&background=CB94F7&color=fff&size=200',
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
     location: 'Jaipur Royal Wedding',
     date: 'November 2024',
     rating: 5,
-    text: 'Choosing Forever Moments was the best decision we made for our wedding. Their attention to detail, artistic vision, and professionalism exceeded all expectations. Absolutely world-class service and stunning results.',
+    text: 'Choosing 4ever Moments was the best decision we made for our wedding. Their attention to detail, artistic vision, and professionalism exceeded all expectations. Absolutely world-class service and stunning results.',
     image: 'https://ui-avatars.com/api/?name=Rohan+Ananya&background=8A53FF&color=fff&size=200',
   },
   {
@@ -31,7 +31,7 @@ const testimonials = [
     location: 'Goa Beach Wedding',
     date: 'October 2024',
     rating: 5,
-    text: 'The team at Forever Moments are not just photographers; they are artists who understand emotion. Looking at our wedding album brings tears of joy every single time. Pure magic in every frame.',
+    text: 'The team at 4ever Moments are not just photographers; they are artists who understand emotion. Looking at our wedding album brings tears of joy every single time. Pure magic in every frame.',
     image: 'https://ui-avatars.com/api/?name=Kabir+Meera&background=E7C9FF&color=1C112D&size=200',
   },
   {
@@ -47,7 +47,7 @@ const testimonials = [
     location: 'Mumbai Luxury Wedding',
     date: 'August 2024',
     rating: 5,
-    text: 'Forever Moments has an incredible eye for capturing the most intimate moments. Our wedding film is like a Bollywood movie - we watch it every anniversary. Worth every single rupee.',
+    text: '4ever Moments has an incredible eye for capturing the most intimate moments. Our wedding film is like a Bollywood movie - we watch it every anniversary. Worth every single rupee.',
     image: 'https://ui-avatars.com/api/?name=Arjun+Ishita&background=37215A&color=fff&size=200',
   },
   {
@@ -71,7 +71,7 @@ const testimonials = [
     location: 'Goa Destination Wedding',
     date: 'May 2024',
     rating: 5,
-    text: 'Forever Moments made our beach wedding look like a fairytale. The cinematic quality of our photos and film is unmatched. They have a unique ability to capture love in its purest form.',
+    text: '4ever Moments made our beach wedding look like a fairytale. The cinematic quality of our photos and film is unmatched. They have a unique ability to capture love in its purest form.',
     image: 'https://ui-avatars.com/api/?name=Vihaan+Zara&background=8A53FF&color=fff&size=200',
   },
 ]

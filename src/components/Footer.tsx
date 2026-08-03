@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div className="lg:col-span-1">
               <h3 className="font-heading text-3xl font-light tracking-wider text-gradient-luxury mb-6">
-                FOREVER MOMENTS
+                4EVER MOMENTS
               </h3>
               <p className="text-white/80 text-sm leading-relaxed mb-6">
                 Crafting timeless wedding stories that transcend generations. 
@@ -24,13 +24,22 @@ export default function Footer() {
             <div>
               <h4 className="font-heading text-lg mb-6 text-primaryLight font-medium">Quick Links</h4>
               <ul className="space-y-3">
-                {['Home', 'Portfolio', 'Films', 'Pre Wedding', 'Family', 'Services', 'Our Story', 'Contact'].map((item) => (
-                  <li key={item}>
+                {[
+                  { name: 'Home', href: '#home' },
+                  { name: 'Portfolio', href: '#portfolio' },
+                  { name: 'Film/Aerial Shoots', href: '#films' },
+                  { name: 'Pre Wedding', href: '#prewedding' },
+                  { name: 'Family/Birthdays', href: '#family' },
+                  { name: 'Services', href: '#services' },
+                  { name: 'Our Story', href: '#story' },
+                  { name: 'Contact', href: '#contact' }
+                ].map((item) => (
+                  <li key={item.name}>
                     <a
-                      href={`#${item.toLowerCase().replace(' ', '')}`}
+                      href={item.href}
                       className="text-white/80 hover:text-primaryLight transition-colors duration-300 text-sm tracking-wide"
                     >
-                      {item}
+                      {item.name}
                     </a>
                   </li>
                 ))}

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import GlowCard from './ui/GlowCard'
 import SplitText from './ui/SplitText'
+import PremiumButton from './ui/PremiumButton'
 
 const preWeddingImages = [
   { id: 1, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/prewedding/pre1.jpeg', title: 'Golden Hour', location: 'Udaipur' },
@@ -58,42 +59,118 @@ export default function PreWedding() {
             {displayImages.map((image, index) => (
               <motion.div
                 key={image.id}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 60, scale: 0.95 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="flex-shrink-0 w-[300px] md:w-[400px] snap-start"
+                className="flex-shrink-0 w-[300px] md:w-[400px] snap-start cursor-pointer perspective-1000"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                style={{ perspective: '1000px' }}
               >
-                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
                   <div className="relative aspect-[3/4] overflow-hidden bg-surfaceLight">
-                    <img
+                    <motion.img
                       src={image.src}
                       alt={image.title}
                       loading="lazy"
-                      className={`w-full h-full object-cover transition-transform duration-700 ease-[0.25, 0.46, 0.45, 0.94] ${
-                        hoveredIndex === index ? 'scale-110' : 'scale-100'
-                      }`}
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23F7F3FF%22 width=%22300%22 height=%22400%22/%3E%3Ctext fill=%22%236B4C7A%22 font-family=%22sans-serif%22 font-size=%2214%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage Loading...%3C/text%3E%3C/svg%3E'
                       }}
                     />
                     
                     {/* Luxury Overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-t from-luxuryDark/80 via-luxuryDark/40 to-transparent transition-opacity duration-700 ${
-                      hoveredIndex === index ? 'opacity-100' : 'opacity-0'
-                    }`} />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent opacity-0"
+                      animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    
+                    {/* Light Sweep Effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0"
+                      initial={{ x: '-100%' }}
+                      animate={{ 
+                        x: hoveredIndex === index ? '100%' : '-100%',
+                        opacity: hoveredIndex === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    />
+                    
+                    {/* Border Glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-luxury border-2 border-primary/0"
+                      animate={{ borderColor: hoveredIndex === index ? 'rgba(203, 148, 247, 0.4)' : 'rgba(203, 148, 247, 0)' }}
+                      transition={{ duration: 0.4 }}
+                    />
                     
                     {/* Content */}
-                    <div className={`absolute bottom-0 left-0 right-0 p-6 transition-transform duration-700 ease-[0.25, 0.46, 0.45, 0.94] ${
-                      hoveredIndex === index ? 'translate-y-0' : 'translate-y-full'
-                    }`}>
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 p-6"
+                      animate={{ 
+                        y: hoveredIndex === index ? 0 : '100%',
+                        opacity: hoveredIndex === index ? 1 : 0
+                      }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                    >
                       <div className="space-y-2">
-                        <h3 className="font-heading text-lg text-white font-light">{image.title}</h3>
-                        <p className="text-white/70 text-sm tracking-wide">{image.location}</p>
+                        <motion.p 
+                          className="text-primaryLight text-xs tracking-[0.3em] uppercase font-medium"
+                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
+                          transition={{ delay: 0.2 }}
+                        >
+                          Pre Wedding
+                        </motion.p>
+                        <motion.h3 
+                          className="font-heading text-lg text-white font-light"
+                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
+                          transition={{ delay: 0.25 }}
+                        >
+                          {image.title}
+                        </motion.h3>
+                        <motion.p 
+                          className="text-white/70 text-sm tracking-wide"
+                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          {image.location}
+                        </motion.p>
                       </div>
-                    </div>
+                    </motion.div>
+
+                    {/* Floating Particles */}
+                    <motion.div 
+                      className="absolute inset-0 pointer-events-none"
+                      animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                    >
+                      {[...Array(4)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 bg-primary/60 rounded-full"
+                          animate={{
+                            scale: hoveredIndex === index ? [0, 1, 0] : 0,
+                            opacity: hoveredIndex === index ? [0, 0.8, 0] : 0,
+                            x: hoveredIndex === index ? [0, Math.random() * 40 - 20] : 0,
+                            y: hoveredIndex === index ? [0, -Math.random() * 30 - 10] : 0
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            delay: i * 0.1,
+                            repeat: hoveredIndex === index ? Infinity : 0,
+                            repeatDelay: 0.5
+                          }}
+                          style={{
+                            left: `${20 + Math.random() * 60}%`,
+                            top: `${20 + Math.random() * 60}%`
+                          }}
+                        />
+                      ))}
+                    </motion.div>
                   </div>
                 </GlowCard>
               </motion.div>
@@ -110,14 +187,13 @@ export default function PreWedding() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mt-8"
           >
-            <motion.button
+            <PremiumButton
               onClick={() => setShowAllImages(!showAllImages)}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-12 py-4 border-2 border-primary/50 text-primary text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-primary hover:text-background hover:shadow-glow transition-all duration-400"
+              variant="outline"
+              size="md"
             >
-              {showAllImages ? 'Show Less' : `View All (${preWeddingImages.length})`}
-            </motion.button>
+              {showAllImages ? 'Show Less' : 'View All'}
+            </PremiumButton>
           </motion.div>
         )}
       </div>

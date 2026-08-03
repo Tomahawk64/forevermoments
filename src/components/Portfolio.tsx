@@ -8,6 +8,7 @@ import 'yet-another-react-lightbox/styles.css'
 import GlowCard from './ui/GlowCard'
 import ImageReveal from './ui/ImageReveal'
 import SplitText from './ui/SplitText'
+import PremiumButton from './ui/PremiumButton'
 
 const portfolioImages = [
   { id: 1, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/wed1.jpeg', category: 'Wedding', title: 'Royal Palace Wedding', location: 'Udaipur' },
@@ -28,9 +29,15 @@ const portfolioImages = [
   { id: 16, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/prewedding/pre4.jpeg', category: 'Pre Wedding', title: 'Lake Serenity', location: 'Udaipur' },
   { id: 17, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/prewedding/pre5.jpeg', category: 'Pre Wedding', title: 'Mountain Love', location: 'Manali' },
   { id: 18, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/prewedding/pre6.jpeg', category: 'Pre Wedding', title: 'Desert Romance', location: 'Jaisalmer' },
+  { id: 19, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DOC-20241113-WA0014.jpg.jpeg', category: 'Films/Aerial Shoots', title: 'Aerial Wedding', location: 'Udaipur' },
+  { id: 20, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DSC_3930.jpg.jpeg', category: 'Films/Aerial Shoots', title: 'Drone Coverage', location: 'Jaipur' },
+  { id: 21, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DSC_6533.JPG.jpeg', category: 'Films/Aerial Shoots', title: 'Cinematic Shot', location: 'Delhi' },
+  { id: 22, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DSC_6625.JPG.jpeg', category: 'Films/Aerial Shoots', title: 'Aerial View', location: 'Goa' },
+  { id: 23, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DSC_6657.JPG.jpeg', category: 'Films/Aerial Shoots', title: 'Wedding Film', location: 'Mumbai' },
+  { id: 24, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/DSC_6937.jpg', category: 'Films/Aerial Shoots', title: 'Drone Cinematography', location: 'Bangalore' },
 ]
 
-const categories = ['All', 'Wedding', 'Pre Wedding', 'Engagement']
+const categories = ['All', 'Wedding', 'Pre Wedding', 'Engagement', 'Films/Aerial Shoots']
 
 export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState('All')
@@ -113,47 +120,130 @@ export default function Portfolio() {
             {displayImages.map((image, index) => (
               <motion.div
                 key={image.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 60, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.8, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="group cursor-pointer perspective-1000"
                 onClick={() => openLightbox(index)}
+                style={{ perspective: '1000px' }}
               >
-                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
                   <div className="relative aspect-[4/5] overflow-hidden bg-surfaceLight">
-                    <img
+                    <motion.img
                       src={image.src}
                       alt={image.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-[0.25, 0.46, 0.45, 0.94]"
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect fill=%22%23F7F3FF%22 width=%22400%22 height=%22500%22/%3E%3Ctext fill=%22%236B4C7A%22 font-family=%22sans-serif%22 font-size=%2214%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage Loading...%3C/text%3E%3C/svg%3E'
                       }}
                     />
                     
                     {/* Luxury Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-luxuryDark/80 via-luxuryDark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent opacity-0"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    
+                    {/* Light Sweep Effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%', opacity: 1 }}
+                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    />
+                    
+                    {/* Border Glow */}
+                    <motion.div
+                      className="absolute inset-0 rounded-luxury border-2 border-primary/0"
+                      whileHover={{ borderColor: 'rgba(203, 148, 247, 0.4)' }}
+                      transition={{ duration: 0.4 }}
+                    />
                     
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.25, 0.46, 0.45, 0.94]">
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="space-y-2"
-                      >
-                        <p className="text-primaryLight text-xs tracking-[0.3em] uppercase font-medium">{image.category}</p>
-                        <h3 className="font-heading text-xl text-white font-light">{image.title}</h3>
-                        <p className="text-white/70 text-sm tracking-wide">{image.location}</p>
-                      </motion.div>
-                    </div>
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 p-8"
+                      initial={{ y: '100%', opacity: 0 }}
+                      whileHover={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                    >
+                      <div className="space-y-2">
+                        <motion.p 
+                          className="text-primaryLight text-xs tracking-[0.3em] uppercase font-medium"
+                          initial={{ x: -20, opacity: 0 }}
+                          whileHover={{ x: 0, opacity: 1 }}
+                          transition={{ delay: 0.2 }}
+                        >
+                          {image.category}
+                        </motion.p>
+                        <motion.h3 
+                          className="font-heading text-xl text-white font-light"
+                          initial={{ x: -20, opacity: 0 }}
+                          whileHover={{ x: 0, opacity: 1 }}
+                          transition={{ delay: 0.25 }}
+                        >
+                          {image.title}
+                        </motion.h3>
+                        <motion.p 
+                          className="text-white/70 text-sm tracking-wide"
+                          initial={{ x: -20, opacity: 0 }}
+                          whileHover={{ x: 0, opacity: 1 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          {image.location}
+                        </motion.p>
+                      </div>
+                    </motion.div>
 
-                    {/* Zoom indicator */}
-                    <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-sm">
+                    {/* Floating Particles on Hover */}
+                    <motion.div 
+                      className="absolute inset-0 pointer-events-none"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      {[...Array(6)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="absolute w-1 h-1 bg-primary/60 rounded-full"
+                          initial={{ scale: 0, opacity: 0 }}
+                          whileHover={{
+                            scale: [0, 1, 0],
+                            opacity: [0, 0.8, 0],
+                            x: [0, Math.random() * 40 - 20],
+                            y: [0, -Math.random() * 30 - 10]
+                          }}
+                          transition={{
+                            duration: 1.5,
+                            delay: i * 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 0.5
+                          }}
+                          style={{
+                            left: `${20 + Math.random() * 60}%`,
+                            top: `${20 + Math.random() * 60}%`
+                          }}
+                        />
+                      ))}
+                    </motion.div>
+
+                    {/* Premium Zoom Indicator */}
+                    <motion.div
+                      className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/20 backdrop-blur-glass flex items-center justify-center"
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileHover={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    >
                       <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
                       </svg>
-                    </div>
+                    </motion.div>
                   </div>
                 </GlowCard>
               </motion.div>
@@ -170,14 +260,13 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center mt-12"
           >
-            <motion.button
+            <PremiumButton
               onClick={() => setShowAllImages(!showAllImages)}
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="px-12 py-4 border-2 border-primary/50 text-primary text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-primary hover:text-background hover:shadow-glow transition-all duration-400"
+              variant="outline"
+              size="md"
             >
-              {showAllImages ? 'Show Less' : `View All (${filteredImages.length})`}
-            </motion.button>
+              {showAllImages ? 'Show Less' : 'View All'}
+            </PremiumButton>
           </motion.div>
         )}
 

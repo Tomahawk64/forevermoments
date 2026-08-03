@@ -81,7 +81,7 @@ export default function Films() {
         >
           <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Cinematography</p>
           <SplitText
-            text="Our Films"
+            text="Film/Aerial Shoots"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
             delay={0.1}
           />
@@ -95,9 +95,10 @@ export default function Films() {
           {films.map((film, index) => (
             <motion.div
               key={film.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="group"
               onMouseEnter={() => {
@@ -109,7 +110,7 @@ export default function Films() {
                 setPreviewVideo(null)
               }}
             >
-              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-glow transition-all duration-500 hover:-translate-y-2">
+              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
                 <div className="relative aspect-video overflow-hidden bg-surfaceLight">
                   {playingVideo === film.videoUrl ? (
                     <video
@@ -123,41 +124,95 @@ export default function Films() {
                     <>
                       {/* Thumbnail / Preview Video */}
                       {previewVideo === film.id ? (
-                        <video
+                        <motion.video
                           src={film.videoUrl}
                           autoPlay
                           muted
                           loop
                           className="w-full h-full object-cover"
+                          initial={{ scale: 1 }}
+                          animate={{ scale: 1.05 }}
+                          transition={{ duration: 8, ease: 'linear' }}
                         />
                       ) : (
                         <motion.div
                           className="absolute inset-0 bg-cover bg-center cursor-pointer"
                           style={{ backgroundImage: `url(${film.thumbnail})` }}
-                          animate={{ scale: hoveredFilm === film.id ? 1.1 : 1 }}
+                          animate={{ scale: hoveredFilm === film.id ? 1.08 : 1 }}
                           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
                           onClick={() => setPlayingVideo(film.videoUrl)}
                         />
                       )}
                       
+                      {/* Cinematic Light Sweep */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -skew-x-12 opacity-0"
+                        animate={{ 
+                          x: hoveredFilm === film.id ? '100%' : '-100%',
+                          opacity: hoveredFilm === film.id ? 1 : 0
+                        }}
+                        transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      />
+                      
+                      {/* Border Glow */}
+                      <motion.div
+                        className="absolute inset-0 rounded-luxury border-2 border-primary/0"
+                        animate={{ borderColor: hoveredFilm === film.id ? 'rgba(203, 148, 247, 0.4)' : 'rgba(203, 148, 247, 0)' }}
+                        transition={{ duration: 0.4 }}
+                      />
+                      
                       {/* Netflix-style overlay */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-luxuryDark/80 via-luxuryDark/40 to-transparent"
-                        initial={{ opacity: 0.4 }}
-                        animate={{ opacity: hoveredFilm === film.id ? 0.2 : 0.4 }}
+                        className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent"
+                        initial={{ opacity: 0.5 }}
+                        animate={{ opacity: hoveredFilm === film.id ? 0.3 : 0.5 }}
                         transition={{ duration: 0.3 }}
                       />
                       
-                      {/* Play Button - Netflix style */}
+                      {/* Glass Info Panel */}
                       <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={hoveredFilm === film.id ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                        className="absolute bottom-0 left-0 right-0 p-6"
+                        initial={{ y: '100%', opacity: 0 }}
+                        animate={{ 
+                          y: hoveredFilm === film.id ? 0 : '100%',
+                          opacity: hoveredFilm === film.id ? 1 : 0
+                        }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                      >
+                        <div className="glass rounded-luxury p-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="px-2 py-1 bg-primary/30 text-white text-xs tracking-[0.2em] uppercase rounded">
+                              {film.category}
+                            </span>
+                            <span className="text-white/60 text-xs">{film.duration}</span>
+                          </div>
+                          <h3 className="font-heading text-lg text-white font-light mb-1">{film.title}</h3>
+                          <p className="text-white/70 text-sm">{film.description}</p>
+                        </div>
+                      </motion.div>
+                      
+                      {/* Play Button - Premium style */}
+                      <motion.div
+                        initial={{ scale: 0, opacity: 0, rotate: -180 }}
+                        animate={hoveredFilm === film.id ? { scale: 1, opacity: 1, rotate: 0 } : { scale: 0, opacity: 0, rotate: -180 }}
+                        transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                        className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
                         onClick={() => setPlayingVideo(film.videoUrl)}
                       >
-                        <div className="w-28 h-28 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center shadow-glow">
-                          <Play className="text-white ml-2" size={40} fill="currentColor" />
+                        <div className="relative">
+                          <motion.div
+                            className="w-24 h-24 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center shadow-glow"
+                            animate={{ scale: hoveredFilm === film.id ? [1, 1.1, 1] : 1 }}
+                            transition={{ duration: 2, repeat: hoveredFilm === film.id ? Infinity : 0, ease: 'easeInOut' }}
+                          >
+                            <Play className="text-white ml-2" size={36} fill="currentColor" />
+                          </motion.div>
+                          {/* Ripple effect */}
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-2 border-primary/40"
+                            animate={{ scale: [1, 1.5, 2], opacity: [0.6, 0.3, 0] }}
+                            transition={{ duration: 1.5, repeat: hoveredFilm === film.id ? Infinity : 0 }}
+                          />
                         </div>
                       </motion.div>
                     </>
@@ -166,9 +221,9 @@ export default function Films() {
                   {/* Progress bar animation */}
                   <motion.div
                     className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-primaryDark"
-                    initial={{ width: '0%' }}
-                    animate={hoveredFilm === film.id ? { width: '100%' } : { width: '0%' }}
-                    transition={{ duration: 2, ease: 'linear' }}
+                    initial={{ width: 0 }}
+                    animate={{ width: hoveredFilm === film.id ? '100%' : 0 }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                   />
 
                   {/* Duration Badge */}

@@ -61,7 +61,7 @@ export default function OurStory() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Founded over a decade ago, Forever Moments began with a simple belief: every love story deserves to be told with artistry, emotion, and timeless elegance.
+                Founded over a decade ago, 4ever Moments began with a simple belief: every love story deserves to be told with artistry, emotion, and timeless elegance.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

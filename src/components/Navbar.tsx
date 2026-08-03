@@ -19,8 +19,8 @@ export default function Navbar() {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'Wedding', href: '#portfolio' },
-    { name: 'Films', href: '#films' },
-    { name: 'Family', href: '#family' },
+    { name: 'Film/Aerial Shoots', href: '#films' },
+    { name: 'Family/Birthdays', href: '#family' },
     { name: 'Services', href: '#services' },
     { name: 'Contact', href: '#contact' },
   ]
@@ -77,7 +77,7 @@ export default function Navbar() {
               transition={{ delay: 0.5, duration: 1 }}
               className="font-heading text-xl md:text-2xl font-light tracking-[0.15em] text-gradient hover:opacity-80 transition-opacity duration-300"
             >
-              FOREVER MOMENTS
+              4EVER MOMENTS
             </motion.a>
 
             <div className="hidden lg:flex items-center space-x-8">

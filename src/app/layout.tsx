@@ -5,6 +5,7 @@ import LoadingScreen from '@/components/LoadingScreen'
 import SmoothScroll from '@/components/SmoothScroll'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ScrollBackground from '@/components/ScrollBackground'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -21,18 +22,18 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Forever Moments | Luxury Wedding Photography & Cinematography',
-  description: 'Crafting timeless wedding stories. India\'s most premium wedding photography studio capturing your forever moments with elegance and artistry.',
+  title: '4ever Moments | Luxury Wedding Photography & Cinematography',
+  description: 'Crafting timeless wedding stories. India\'s most premium wedding photography studio capturing your 4ever moments with elegance and artistry.',
   keywords: ['luxury wedding photography', 'wedding cinematography', 'destination wedding photography', 'premium wedding films', 'wedding photography India'],
   openGraph: {
-    title: 'Forever Moments | Luxury Wedding Photography',
-    description: 'Crafting timeless wedding stories. We don\'t just capture your wedding. We capture your forever.',
+    title: '4ever Moments | Luxury Wedding Photography',
+    description: 'Crafting timeless wedding stories. We don\'t just capture your wedding. We capture your 4ever.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Forever Moments | Luxury Wedding Photography',
+    title: '4ever Moments | Luxury Wedding Photography',
     description: 'Crafting timeless wedding stories.',
   },
   robots: {
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${cormorant.variable} ${inter.variable} font-body bg-background text-warmWhite antialiased`}>
+        <ScrollBackground />
         <LoadingScreen />
         <SmoothScroll />
         <Navbar />
