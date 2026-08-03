@@ -1,8 +1,9 @@
 'use client'
 
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 import MagneticButton from './ui/MagneticButton'
 import SplitText from './ui/SplitText'
 
@@ -50,30 +51,36 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" ref={ref} className="relative h-screen overflow-hidden">
-      {/* Hero Image Slider with Ken Burns Effect */}
+    <section id="home" ref={ref} className="relative h-screen overflow-hidden bg-[#190f28]">
+      {/* Hero Image Slider — all images pre-loaded, cross-faded via opacity */}
       <motion.div
         style={{ opacity, scale }}
         className="absolute inset-0"
       >
-        <AnimatePresence mode="wait">
+        {HERO_IMAGES.map((src, i) => (
           <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+            key={src}
             className="absolute inset-0"
+            animate={{
+              opacity: i === currentImageIndex ? 1 : 0,
+              scale: i === currentImageIndex ? 1 : 1.05,
+            }}
+            transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${HERO_IMAGES[currentImageIndex]})` }}
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority={i === 0}
+              quality={85}
+              sizes="100vw"
             />
-            {/* Dark Luxury Gradient Overlays */}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(25,15,40,0.45), rgba(255,255,255,0.08))' }} />
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.15), transparent)' }} />
           </motion.div>
-        </AnimatePresence>
+        ))}
+        {/* Dark Luxury Gradient Overlays */}
+        <div className="absolute inset-0 z-10" style={{ background: 'linear-gradient(to bottom, rgba(25,15,40,0.45), rgba(255,255,255,0.08))' }} />
+        <div className="absolute inset-0 z-10" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.15), transparent)' }} />
       </motion.div>
 
       {/* Cinematic Vignette */}

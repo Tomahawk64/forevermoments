@@ -54,6 +54,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Preload the first hero image so it renders before React hydrates */}
+        <link rel="preload" as="image" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero1.jpg" fetchPriority="high" />
+      </head>
       <body className={`${cormorant.variable} ${inter.variable} font-body bg-background text-warmWhite antialiased`}>
         <ScrollBackground />
         <LoadingScreen />

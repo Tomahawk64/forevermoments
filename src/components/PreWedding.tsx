@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import GlowCard from './ui/GlowCard'
 import SplitText from './ui/SplitText'
 import PremiumButton from './ui/PremiumButton'
@@ -71,18 +72,21 @@ export default function PreWedding() {
               >
                 <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
                   <div className="relative aspect-[3/4] overflow-hidden bg-surfaceLight">
-                    <motion.img
-                      src={image.src}
-                      alt={image.title}
-                      loading="lazy"
+                    <motion.div
+                      className="absolute inset-0"
                       initial={{ scale: 1 }}
                       whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect fill=%22%23F7F3FF%22 width=%22300%22 height=%22400%22/%3E%3Ctext fill=%22%236B4C7A%22 font-family=%22sans-serif%22 font-size=%2214%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage Loading...%3C/text%3E%3C/svg%3E'
-                      }}
-                    />
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 300px, 400px"
+                        quality={80}
+                      />
+                    </motion.div>
                     
                     {/* Luxury Overlay */}
                     <motion.div 

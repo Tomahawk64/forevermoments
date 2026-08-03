@@ -24,11 +24,15 @@ export default function OurStory() {
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative"
           >
-            <div className="aspect-[3/4] overflow-hidden rounded-luxury shadow-luxury">
-              <img
-                src="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/6.jpg"
+            <div className="relative aspect-[3/4] overflow-hidden rounded-luxury shadow-luxury">
+              <Image
+                src="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/wed6.jpg"
                 alt="Our Story"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <motion.div

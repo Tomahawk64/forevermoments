@@ -4,6 +4,9 @@ import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import emailjs from '@emailjs/browser'
+import { useState } from 'react'
+import { CheckCircle, XCircle } from 'lucide-react'
 import GlowCard from './ui/GlowCard'
 import SplitText from './ui/SplitText'
 import MagneticButton from './ui/MagneticButton'
@@ -22,17 +25,48 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>
 
 export default function Contact() {
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
   })
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log('Form submitted:', data)
-    // Add your form submission logic here
+    setSubmitStatus('idle')
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      phone: data.phone,
+      event_date: data.eventDate,
+      event_type: data.eventType,
+      venue: data.venue,
+      budget: data.budget,
+      message: data.message,
+    }
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      )
+      // Send auto-reply to the client
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_AUTOREPLY_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      )
+      setSubmitStatus('success')
+      reset()
+    } catch {
+      setSubmitStatus('error')
+    }
   }
 
   return (
@@ -214,6 +248,28 @@ export default function Contact() {
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </motion.button>
+
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/30 rounded-input text-green-600"
+                >
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm">Message sent! We'll be in touch soon.</p>
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/30 rounded-input text-red-500"
+                >
+                  <XCircle className="w-5 h-5 flex-shrink-0" />
+                  <p className="text-sm">Something went wrong. Please try again or contact us directly.</p>
+                </motion.div>
+              )}
             </form>
           </GlowCard>
         </motion.div>
