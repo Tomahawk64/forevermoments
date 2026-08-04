@@ -71,7 +71,7 @@ const testimonials = [
     location: 'Lucknow Heritage Wedding',
     date: 'May 2024',
     rating: 5,
-    text: 'I was worried about the heritage venue being tricky to shoot but they handled the light beautifully. The pictures are warm and real — exactly what we wanted.',,
+    text: 'I was worried about the heritage venue being tricky to shoot but they handled the light beautifully. The pictures are warm and real — exactly what we wanted.',
     image: 'https://ui-avatars.com/api/?name=Vihaan+Zara&background=8A53FF&color=fff&size=200',
   },
 ]
