@@ -60,11 +60,11 @@ export default function Footer() {
               <h4 className="font-heading text-lg mb-6 text-primaryLight font-medium">Connect</h4>
               <div className="space-y-4">
                 <a
-                  href="mailto:mohityv14@gmail.com"
+                  href="mailto:4evermomentss@gmail.com"
                   className="flex items-center space-x-3 text-white/80 hover:text-primaryLight transition-colors duration-300"
                 >
                   <Mail size={18} />
-                  <span className="text-sm">mohityv14@gmail.com</span>
+                  <span className="text-sm">4evermomentss@gmail.com</span>
                 </a>
                 <a
                   href="tel:+918920557478"
