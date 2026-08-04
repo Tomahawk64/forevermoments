@@ -10,29 +10,29 @@ const features = [
   {
     icon: Heart,
     title: 'Emotion First Storytelling',
-    description: 'We capture the raw, authentic emotions that make your wedding uniquely yours. Every tear, every smile, every moment of pure joy.',
+    description: 'We’re not here to pose you or direct a show. We watch, we wait, and we catch what’s real.',
   },
   {
     icon: Award,
     title: 'Luxury Cinematic Editing',
-    description: 'Our post-production team transforms raw footage into cinematic masterpieces with Hollywood-grade color grading and artistic direction.',
+    description: 'Our editing is deliberate and unhurried. Colour, light, pacing — everything is worked on until it feels right.',
   },
   {
     icon: Star,
     title: 'Natural Moments',
-    description: 'We believe in being invisible observers, capturing candid moments as they naturally unfold without intrusion or staging.',
+    description: 'We move quietly through your day and try hard not to be noticed — which usually means better photos.',
   },
   {
     icon: MapPin,
     title: 'Lifetime Memories',
-    description: 'From destination weddings to intimate ceremonies, we travel worldwide to preserve your love story in timeless formats.',
+    description: 'Whether it’s a grand banquet hall in Delhi or a quiet mandap in the hills — we show up fully prepared.',
   },
 ]
 
 const stats = [
-  { number: 500, label: 'Luxury Weddings', suffix: '+' },
-  { number: 12, label: 'Years', suffix: '+' },
-  { number: 40, label: 'Destinations', suffix: '+' },
+  { number: 100, label: 'Luxury Weddings', suffix: '+' },
+  { number: 5, label: 'Years', suffix: '+' },
+  { number: 20, label: 'Destinations', suffix: '+' },
   { number: 100, label: 'Client Satisfaction', suffix: '%' },
 ]
 
@@ -54,14 +54,14 @@ export default function WhyChooseUs() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Why Couples Choose Us</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Why Couples Choose Us</p>
           <SplitText
             text="The Forever Difference"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
             delay={0.1}
           />
           <p className="text-textLight max-w-2xl mx-auto text-lg leading-relaxed">
-            What sets us apart in the world of luxury wedding photography.
+            What makes couples keep recommending us.
           </p>
         </motion.div>
 

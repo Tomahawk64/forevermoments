@@ -51,7 +51,7 @@ export default function OurStory() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Our Journey</p>
+            <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Our Journey</p>
             <SplitText
               text="Our Story"
               className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-10"
@@ -65,7 +65,7 @@ export default function OurStory() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Founded over a decade ago, 4ever Moments began with a simple belief: every love story deserves to be told with artistry, emotion, and timeless elegance.
+                4EVER MOMENTS started with one simple idea — that your wedding day deserves more than just good photos. It deserves someone who actually cares about what those moments mean to you.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -73,7 +73,7 @@ export default function OurStory() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                What started as a passion project has evolved into one of India's most sought-after luxury wedding photography studios. We've had the privilege of documenting over 500 weddings across 40 destinations worldwide.
+                Over the past 5 years we've had the honour of being trusted by over 100 couples across North India and beyond. Every wedding has taught us something new — and that curiosity is what keeps our work feeling fresh and personal.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -82,17 +82,17 @@ export default function OurStory() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-text"
               >
-                Our approach is simple: we become invisible observers, capturing authentic moments that unfold naturally. We don't pose; we preserve.
+                We stay out of the way, move quietly through the day, and pay attention to the small things — a glance, a held hand, the way someone laughs when they're truly happy. That's what we're here to capture.
               </motion.p>
             </div>
 
             {/* Values */}
             <div className="grid grid-cols-2 gap-6 mt-12">
               {[
-                { icon: Target, title: 'Mission', desc: 'To create visual legacies that transcend generations.' },
-                { icon: Eye, title: 'Vision', desc: 'To be the gold standard in wedding storytelling.' },
-                { icon: Award, title: 'Experience', desc: '12+ years of capturing timeless moments.' },
-                { icon: Heart, title: 'Values', desc: 'Authenticity, artistry, and excellence.' },
+                { icon: Target, title: 'Mission', desc: 'To craft visual legacies so vivid, future generations feel present.' },
+                { icon: Eye, title: 'Vision', desc: 'To redefine luxury wedding storytelling across India.' },
+                { icon: Award, title: 'Experience', desc: '5+ years. 100+ weddings. Zero compromises.' },
+                { icon: Heart, title: 'Values', desc: 'Discretion, artistry, and an obsession with excellence.' },
               ].map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -126,7 +126,7 @@ export default function OurStory() {
               className="mt-12 p-10 border-l-4 border-primary/30 bg-white/50 backdrop-blur-glass rounded-r-luxury"
             >
               <p className="font-heading text-2xl md:text-3xl text-text italic leading-relaxed font-light">
-                "We don't create photographs. We preserve legacies."
+                "Every frame we take is a promise kept."
               </p>
             </motion.div>
           </motion.div>

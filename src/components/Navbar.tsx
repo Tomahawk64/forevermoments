@@ -75,9 +75,14 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
-              className="font-heading text-xl md:text-2xl font-light tracking-[0.15em] text-gradient hover:opacity-80 transition-opacity duration-300"
+              className={cn(
+                "font-heading text-2xl md:text-3xl font-bold tracking-[0.12em] hover:opacity-80 transition-all duration-500",
+                isScrolled
+                  ? "text-gradient"
+                  : "text-white [text-shadow:0_0_20px_rgba(203,148,247,0.8),0_2px_8px_rgba(0,0,0,0.4)]"
+              )}
             >
-              4EVER MOMENTS
+              <span className="text-[1.45em] relative -top-[0.15em] inline-block">4</span>EVER MOMENTS
             </motion.a>
 
             <div className="hidden lg:flex items-center space-x-8">

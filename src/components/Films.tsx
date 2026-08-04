@@ -79,7 +79,7 @@ export default function Films() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Cinematography</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Cinematography</p>
           <SplitText
             text="Film/Aerial Shoots"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"

@@ -44,12 +44,14 @@ export default function Portfolio() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
   const [showAllImages, setShowAllImages] = useState(false)
+  const [brokenImages, setBrokenImages] = useState<Set<number>>(new Set())
 
   const filteredImages = selectedCategory === 'All' 
     ? portfolioImages 
     : portfolioImages.filter(img => img.category === selectedCategory)
 
-  const displayImages = showAllImages ? filteredImages : filteredImages.slice(0, 8)
+  const validImages = filteredImages.filter(img => !brokenImages.has(img.id))
+  const displayImages = showAllImages ? validImages : validImages.slice(0, 8)
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index)
@@ -70,7 +72,7 @@ export default function Portfolio() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Our Work</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Our Work</p>
           <SplitText
             text="Portfolio"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -137,74 +139,24 @@ export default function Portfolio() {
                       whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
-                      <Image
+                    <Image
                         src={image.src}
                         alt={image.title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         quality={80}
+                        onError={() => setBrokenImages(prev => new Set(prev).add(image.id))}
                       />
                     </motion.div>
                     
                     {/* Luxury Overlay */}
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent opacity-0"
+                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/60 via-transparent to-transparent opacity-0"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
                     />
-                    
-                    {/* Light Sweep Effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%', opacity: 1 }}
-                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    />
-                    
-                    {/* Border Glow */}
-                    <motion.div
-                      className="absolute inset-0 rounded-luxury border-2 border-primary/0"
-                      whileHover={{ borderColor: 'rgba(203, 148, 247, 0.4)' }}
-                      transition={{ duration: 0.4 }}
-                    />
-                    
-                    {/* Content */}
-                    <motion.div 
-                      className="absolute bottom-0 left-0 right-0 p-8"
-                      initial={{ y: '100%', opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                      <div className="space-y-2">
-                        <motion.p 
-                          className="text-primaryLight text-xs tracking-[0.3em] uppercase font-medium"
-                          initial={{ x: -20, opacity: 0 }}
-                          whileHover={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          {image.category}
-                        </motion.p>
-                        <motion.h3 
-                          className="font-heading text-xl text-white font-light"
-                          initial={{ x: -20, opacity: 0 }}
-                          whileHover={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.25 }}
-                        >
-                          {image.title}
-                        </motion.h3>
-                        <motion.p 
-                          className="text-white/70 text-sm tracking-wide"
-                          initial={{ x: -20, opacity: 0 }}
-                          whileHover={{ x: 0, opacity: 1 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          {image.location}
-                        </motion.p>
-                      </div>
-                    </motion.div>
-
                     {/* Floating Particles on Hover */}
                     <motion.div 
                       className="absolute inset-0 pointer-events-none"
@@ -277,7 +229,7 @@ export default function Portfolio() {
         <Lightbox
           open={lightboxOpen}
           close={() => setLightboxOpen(false)}
-          slides={filteredImages.map(img => ({ src: img.src }))}
+          slides={validImages.map(img => ({ src: img.src }))}
           index={lightboxIndex}
         />
       </div>

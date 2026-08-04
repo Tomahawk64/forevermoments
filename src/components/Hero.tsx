@@ -101,7 +101,7 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 0.5 }}
           className="mb-8"
         >
-          <p className="text-primaryLight tracking-[0.35em] text-xs uppercase font-medium drop-shadow-lg">Luxury Wedding Photography & Cinematography</p>
+          <p className="text-primaryLight tracking-[0.3em] text-sm uppercase font-medium drop-shadow-lg">Luxury Wedding Photography & Cinematography</p>
         </motion.div>
 
         <motion.div
@@ -111,7 +111,7 @@ export default function Hero() {
           className="mb-12"
         >
           <div className="flex items-baseline justify-center">
-            <span className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl">4EVER</span>
+            <span className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl"><span className="text-[1.45em] relative -top-[0.15em] inline-block">4</span>EVER</span>
           </div>
           <SplitText
             text="MOMENTS"

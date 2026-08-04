@@ -15,7 +15,7 @@ const testimonials = [
     location: 'Udaipur Palace Wedding',
     date: 'December 2024',
     rating: 5,
-    text: '4ever Moments transformed our wedding into a cinematic masterpiece. Every photo tells a story, every frame is a work of art. They didn\'t just capture our wedding; they captured our souls. The attention to detail was extraordinary.',
+    text: 'We’ve both looked at the photos a hundred times and still notice new things. They caught moments we didn’t even know were happening. Genuinely couldn’t have asked for more.',
     image: 'https://ui-avatars.com/api/?name=Aarav+Priya&background=CB94F7&color=fff&size=200',
   },
   {
@@ -23,15 +23,15 @@ const testimonials = [
     location: 'Jaipur Royal Wedding',
     date: 'November 2024',
     rating: 5,
-    text: 'Choosing 4ever Moments was the best decision we made for our wedding. Their attention to detail, artistic vision, and professionalism exceeded all expectations. Absolutely world-class service and stunning results.',
+    text: 'They were on time, easy to work with, and the final album genuinely took our breath away. No drama, no chasing — just really good work delivered when they said it would be.',
     image: 'https://ui-avatars.com/api/?name=Rohan+Ananya&background=8A53FF&color=fff&size=200',
   },
   {
     name: 'Kabir & Meera',
-    location: 'Goa Beach Wedding',
+    location: 'Dehradun Hill Wedding',
     date: 'October 2024',
     rating: 5,
-    text: 'The team at 4ever Moments are not just photographers; they are artists who understand emotion. Looking at our wedding album brings tears of joy every single time. Pure magic in every frame.',
+    text: 'Our families had flown in from four different cities. Every single person in those photos looks real — not posed, not awkward. That’s harder to pull off than it sounds.',
     image: 'https://ui-avatars.com/api/?name=Kabir+Meera&background=E7C9FF&color=1C112D&size=200',
   },
   {
@@ -39,23 +39,23 @@ const testimonials = [
     location: 'Delhi Grand Wedding',
     date: 'September 2024',
     rating: 5,
-    text: 'From our first meeting to the final delivery, the experience was seamless. They made us feel like royalty, and our wedding photos reflect that elegance. Truly the best in the industry.',
+    text: 'I was nervous about having cameras around all day but honestly forgot they were there. When I saw the photos I was shocked at what they’d captured without us noticing.',
     image: 'https://ui-avatars.com/api/?name=Rahul+Sneha&background=F5EDFF&color=1C112D&size=200',
   },
   {
     name: 'Arjun & Ishita',
-    location: 'Mumbai Luxury Wedding',
+    location: 'Agra Palace Wedding',
     date: 'August 2024',
     rating: 5,
-    text: '4ever Moments has an incredible eye for capturing the most intimate moments. Our wedding film is like a Bollywood movie - we watch it every anniversary. Worth every single rupee.',
+    text: 'The film they made for us is the first thing we show people when they visit. It’s three minutes long and every time it feels like reliving the whole day. We watch it on every anniversary.',
     image: 'https://ui-avatars.com/api/?name=Arjun+Ishita&background=37215A&color=fff&size=200',
   },
   {
     name: 'Vivaan & Riya',
-    location: 'Bangalore Garden Wedding',
+    location: 'Chandigarh Garden Wedding',
     date: 'July 2024',
     rating: 5,
-    text: 'The team\'s ability to blend into the background while capturing everything is remarkable. They anticipated moments before they happened. Our photos are timeless treasures we\'ll cherish forever.',
+    text: 'They clearly prepared well because they knew the venue better than we did on the day. Every corner was covered and nothing was missed. Super reliable team.',
     image: 'https://ui-avatars.com/api/?name=Vivaan+Riya&background=24153D&color=fff&size=200',
   },
   {
@@ -63,15 +63,15 @@ const testimonials = [
     location: 'Jodhpur Fort Wedding',
     date: 'June 2024',
     rating: 5,
-    text: 'Our destination wedding in Jodhpur was captured with such elegance and artistry. The team understood our vision perfectly and delivered beyond our wildest dreams. Absolutely breathtaking work.',
+    text: 'Fort backdrop, golden hour light, and a team that actually knew how to use both. The photos look like they belong in a magazine. Our guests still message us asking who the photographer was.',
     image: 'https://ui-avatars.com/api/?name=Aditya+Pari&background=CB94F7&color=fff&size=200',
   },
   {
     name: 'Vihaan & Zara',
-    location: 'Goa Destination Wedding',
+    location: 'Lucknow Heritage Wedding',
     date: 'May 2024',
     rating: 5,
-    text: '4ever Moments made our beach wedding look like a fairytale. The cinematic quality of our photos and film is unmatched. They have a unique ability to capture love in its purest form.',
+    text: 'I was worried about the heritage venue being tricky to shoot but they handled the light beautifully. The pictures are warm and real — exactly what we wanted.',,
     image: 'https://ui-avatars.com/api/?name=Vihaan+Zara&background=8A53FF&color=fff&size=200',
   },
 ]
@@ -96,7 +96,7 @@ export default function Testimonials() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Love Letters</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Love Letters</p>
           <SplitText
             text="Our Happy Couples"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"

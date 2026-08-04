@@ -9,31 +9,31 @@ const steps = [
   {
     number: '01',
     title: 'Discovery',
-    description: 'We begin by understanding your vision, preferences, and the unique story you want to tell through intimate conversations.',
+    description: 'We start with a proper conversation — about your day, your family, what matters to you and what doesn’t.',
     icon: Camera,
   },
   {
     number: '02',
     title: 'Planning',
-    description: 'Meticulous planning of shots, timelines, and creative direction to ensure every precious moment is captured flawlessly.',
+    description: 'We map out the full day — venues, timings, light conditions — so nothing is left to chance on the actual day.',
     icon: Calendar,
   },
   {
     number: '03',
     title: 'Capture',
-    description: 'Our team becomes invisible observers, capturing authentic emotions and candid moments as they naturally unfold.',
+    description: 'We’re on the ground from the first ritual to the last dance. Quietly present, always paying attention.',
     icon: Sparkles,
   },
   {
     number: '04',
     title: 'Artistry',
-    description: 'Artistic post-production where raw footage transforms into cinematic masterpieces with luxury color grading.',
+    description: 'Every photo and frame is edited with care. This is the part that takes time — and it should.',
     icon: Scissors,
   },
   {
     number: '05',
     title: 'Legacy',
-    description: 'Presentation of your complete visual legacy in premium formats, luxury albums, and timeless digital galleries.',
+    description: 'Your gallery, film, and album — delivered in a way that’s easy to access, share, and keep forever.',
     icon: Gift,
   },
 ]
@@ -53,14 +53,14 @@ export default function Process() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-24"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">How We Work</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">How We Work</p>
           <SplitText
             text="Our Process"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
             delay={0.1}
           />
           <p className="text-textLight max-w-2xl mx-auto text-lg leading-relaxed">
-            A carefully crafted journey from vision to legacy.
+            Simple steps. No surprises.
           </p>
         </motion.div>
 

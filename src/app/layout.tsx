@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   title: '4ever Moments | Luxury Wedding Photography & Cinematography',
   description: 'Crafting timeless wedding stories. India\'s most premium wedding photography studio capturing your 4ever moments with elegance and artistry.',
   keywords: ['luxury wedding photography', 'wedding cinematography', 'destination wedding photography', 'premium wedding films', 'wedding photography India'],
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+  },
   openGraph: {
     title: '4ever Moments | Luxury Wedding Photography',
     description: 'Crafting timeless wedding stories. We don\'t just capture your wedding. We capture your 4ever.',

@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Image from 'next/image'
+import Lightbox from 'yet-another-react-lightbox'
+import 'yet-another-react-lightbox/styles.css'
 import GlowCard from './ui/GlowCard'
 import SplitText from './ui/SplitText'
 import PremiumButton from './ui/PremiumButton'
@@ -26,6 +28,8 @@ const preWeddingImages = [
 export default function PreWedding() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [showAllImages, setShowAllImages] = useState(false)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const [lightboxIndex, setLightboxIndex] = useState(0)
 
   const displayImages = showAllImages ? preWeddingImages : preWeddingImages.slice(0, 6)
 
@@ -43,7 +47,7 @@ export default function PreWedding() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">Before The Big Day</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Before The Big Day</p>
           <SplitText
             text="Pre Wedding Stories"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -66,6 +70,7 @@ export default function PreWedding() {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="flex-shrink-0 w-[300px] md:w-[400px] snap-start cursor-pointer perspective-1000"
+                onClick={() => { setLightboxIndex(index); setLightboxOpen(true) }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 style={{ perspective: '1000px' }}
@@ -113,39 +118,7 @@ export default function PreWedding() {
                       transition={{ duration: 0.4 }}
                     />
                     
-                    {/* Content */}
-                    <motion.div 
-                      className="absolute bottom-0 left-0 right-0 p-6"
-                      animate={{ 
-                        y: hoveredIndex === index ? 0 : '100%',
-                        opacity: hoveredIndex === index ? 1 : 0
-                      }}
-                      transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                      <div className="space-y-2">
-                        <motion.p 
-                          className="text-primaryLight text-xs tracking-[0.3em] uppercase font-medium"
-                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          Pre Wedding
-                        </motion.p>
-                        <motion.h3 
-                          className="font-heading text-lg text-white font-light"
-                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
-                          transition={{ delay: 0.25 }}
-                        >
-                          {image.title}
-                        </motion.h3>
-                        <motion.p 
-                          className="text-white/70 text-sm tracking-wide"
-                          animate={{ x: hoveredIndex === index ? 0 : -20, opacity: hoveredIndex === index ? 1 : 0 }}
-                          transition={{ delay: 0.3 }}
-                        >
-                          {image.location}
-                        </motion.p>
-                      </div>
-                    </motion.div>
+
 
                     {/* Floating Particles */}
                     <motion.div 
@@ -201,6 +174,13 @@ export default function PreWedding() {
           </motion.div>
         )}
       </div>
+
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        slides={preWeddingImages.map(img => ({ src: img.src }))}
+        index={lightboxIndex}
+      />
     </section>
   )
 }

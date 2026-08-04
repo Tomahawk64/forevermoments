@@ -9,22 +9,22 @@ const services = [
   {
     icon: Camera,
     title: 'Wedding Photography',
-    description: 'Capturing every precious moment with artistic precision and emotional depth.',
+    description: 'Real moments, beautifully framed. We photograph your day the way it actually felt.',
   },
   {
     icon: Video,
     title: 'Wedding Cinematography',
-    description: 'Cinematic films that tell your love story with Hollywood-quality production.',
+    description: 'A proper film of your wedding day — edited to feel like something worth watching again and again.',
   },
   {
     icon: MapPin,
     title: 'Destination Weddings',
-    description: 'Traveling worldwide to capture your dream wedding in exotic locations.',
+    description: 'We travel wherever your wedding takes you. Distance is never a problem.',
   },
   {
     icon: Heart,
     title: 'Pre Wedding',
-    description: 'Romantic pre-wedding shoots that celebrate your journey together.',
+    description: 'Just the two of you, a great location, and no pressure. Our favourite kind of shoot.',
   },
   {
     icon: Plane,
@@ -39,12 +39,12 @@ const services = [
   {
     icon: Book,
     title: 'Luxury Albums',
-    description: 'Handcrafted premium albums that preserve your memories for generations.',
+    description: 'Handmade albums built to last — the kind you leave on the coffee table for guests to flip through.',
   },
   {
     icon: InstagramIcon,
     title: 'Social Media Reels',
-    description: 'Trendy, shareable content perfect for modern social media storytelling.',
+    description: 'Short, shareable reels for Instagram — edited fast so you can post before the mehendi fades.',
   },
 ]
 
@@ -63,14 +63,14 @@ export default function Services() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.4em] text-xs uppercase font-medium mb-6">What We Offer</p>
+          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">What We Offer</p>
           <SplitText
             text="Signature Services"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
             delay={0.1}
           />
           <p className="text-textLight max-w-2xl mx-auto text-lg leading-relaxed">
-            Comprehensive photography and cinematography solutions for your special day.
+            Everything you need, in one place.
           </p>
         </motion.div>
 
