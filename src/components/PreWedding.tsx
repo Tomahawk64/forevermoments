@@ -60,7 +60,7 @@ export default function PreWedding() {
 
         {/* Horizontal Gallery */}
         <div className="relative">
-          <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide">
+          <div className="flex overflow-x-auto gap-4 sm:gap-6 pb-8 snap-x snap-mandatory scrollbar-hide">
             {displayImages.map((image, index) => (
               <motion.div
                 key={image.id}
@@ -69,7 +69,7 @@ export default function PreWedding() {
                 whileHover={{ y: -8, scale: 1.02 }}
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.8, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="flex-shrink-0 w-[300px] md:w-[400px] snap-start cursor-pointer perspective-1000"
+                className="flex-shrink-0 w-[240px] sm:w-[300px] md:w-[380px] snap-start cursor-pointer perspective-1000"
                 onClick={() => { setLightboxIndex(index); setLightboxOpen(true) }}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}

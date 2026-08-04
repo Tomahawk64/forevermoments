@@ -95,10 +95,10 @@ export default function LoadingScreen() {
               className="text-center"
             >
               <div className="flex flex-col items-center">
-                <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.25em] text-gradient mb-4">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.25em] text-gradient mb-4">
                   <span className="inline-block"><span className="text-[1.45em] relative -top-[0.15em] inline-block">4</span>EVER</span>
                 </h1>
-                <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.25em] text-gradient mb-16">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-light tracking-[0.25em] text-gradient mb-16">
                   <span className="inline-block">MOMENTS</span>
                 </h1>
               </div>

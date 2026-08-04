@@ -15,7 +15,7 @@ export default function OurStory() {
       <div className="absolute bottom-20 left-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -87,7 +87,7 @@ export default function OurStory() {
             </div>
 
             {/* Values */}
-            <div className="grid grid-cols-2 gap-6 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
               {[
                 { icon: Target, title: 'Mission', desc: 'To craft visual legacies so vivid, future generations feel present.' },
                 { icon: Eye, title: 'Vision', desc: 'To redefine luxury wedding storytelling across India.' },

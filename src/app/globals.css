@@ -60,8 +60,16 @@ nextjs-portal { display: none !important; }
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
+  }
+
+  @media (min-width: 768px) {
+    body { font-size: 17px; }
+  }
+
+  @media (min-width: 1024px) {
+    body { font-size: 18px; }
   }
 
   html {
@@ -120,15 +128,15 @@ nextjs-portal { display: none !important; }
   }
 
   .section-padding {
-    @apply px-6 md:px-12 lg:px-24 py-[60px] md:py-[80px] lg:py-[120px];
+    @apply px-4 sm:px-6 md:px-12 lg:px-24 py-[40px] sm:py-[60px] md:py-[80px] lg:py-[120px];
   }
 
   .section-padding-sm {
-    @apply px-6 md:px-12 lg:px-24 py-[40px] md:py-[60px] lg:py-[80px];
+    @apply px-4 sm:px-6 md:px-12 lg:px-24 py-[30px] sm:py-[40px] md:py-[60px] lg:py-[80px];
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 md:px-8;
   }
 
   /* Typography utilities - luxury */

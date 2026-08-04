@@ -13,8 +13,7 @@ export default function Footer() {
                 <span className="text-[1.45em] relative -top-[0.15em] inline-block">4</span>EVER MOMENTS
               </h3>
               <p className="text-white/80 text-sm leading-relaxed mb-6">
-                Crafting timeless wedding stories that transcend generations. 
-                We don't just capture your wedding. We capture your forever.
+                Real weddings. Real moments. Captured with care across North India and beyond.
               </p>
               <p className="text-white/60 text-xs tracking-wider">
                 Luxury Wedding Photography & Cinematography

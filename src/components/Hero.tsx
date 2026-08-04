@@ -126,7 +126,7 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 0.9 }}
           className="mb-16"
         >
-          <p className="font-heading text-xl md:text-2xl lg:text-3xl text-white/95 max-w-3xl leading-relaxed tracking-wide font-light drop-shadow-lg">
+          <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 max-w-3xl leading-relaxed tracking-wide font-light drop-shadow-lg px-4 sm:px-0">
             Crafting timeless wedding stories
           </p>
         </motion.div>
@@ -143,7 +143,7 @@ export default function Hero() {
           >
             <MagneticButton
               onClick={scrollToFilms}
-              className="px-14 py-5 bg-gradient-to-r from-primary to-primaryDark text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button shadow-luxury hover:shadow-glow hover:-translate-y-1 transition-all duration-400 relative overflow-hidden group"
+              className="px-8 sm:px-12 md:px-14 py-4 sm:py-5 bg-gradient-to-r from-primary to-primaryDark text-white text-xs sm:text-sm tracking-[0.25em] uppercase font-medium rounded-button shadow-luxury hover:shadow-glow hover:-translate-y-1 transition-all duration-400 relative overflow-hidden group"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
@@ -160,7 +160,7 @@ export default function Hero() {
           >
             <MagneticButton
               onClick={scrollToPortfolio}
-              className="px-14 py-5 border-2 border-white/80 text-white text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-white/20 hover:border-white hover:shadow-glow hover:-translate-y-1 transition-all duration-400 backdrop-blur-sm relative overflow-hidden group"
+              className="px-8 sm:px-12 md:px-14 py-4 sm:py-5 border-2 border-white/80 text-white text-xs sm:text-sm tracking-[0.25em] uppercase font-medium rounded-button hover:bg-white/20 hover:border-white hover:shadow-glow hover:-translate-y-1 transition-all duration-400 backdrop-blur-sm relative overflow-hidden group"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12"

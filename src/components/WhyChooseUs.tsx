@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
                 transition={{ duration: 0.8, delay: index * 0.1 + 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                 className="mb-6"
               >
-                <span className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-gradient tracking-tight">
+                <span className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-gradient tracking-tight">
                   {stat.number}
                   {stat.suffix}
                 </span>
@@ -124,7 +124,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <p className="font-heading text-2xl md:text-3xl text-text italic max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="font-heading text-xl sm:text-2xl md:text-3xl text-text italic max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
             "Every wedding is unique, and every couple deserves a visual narrative as extraordinary as their love story."
           </p>
         </motion.div>
