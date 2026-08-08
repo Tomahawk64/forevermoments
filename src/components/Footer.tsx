@@ -16,7 +16,7 @@ export default function Footer() {
                 Real weddings. Real moments. Captured with care across North India and beyond.
               </p>
               <p className="text-white/60 text-xs tracking-wider">
-                Luxury Wedding Photography & Cinematography
+                Premium Wedding Photography & Cinematography
               </p>
             </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
             <div>
               <h4 className="font-heading text-lg mb-6 text-primaryLight font-medium">Services</h4>
               <ul className="space-y-3">
-                {['Wedding Photography', 'Cinematography', 'Destination Weddings', 'Pre-Wedding', 'Drone Coverage', 'Luxury Albums'].map((item) => (
+                {['Wedding Photography', 'Cinematography', 'Destination Weddings', 'Pre-Wedding', 'Drone Coverage', 'Premium Albums'].map((item) => (
                   <li key={item}>
                     <span className="text-white/80 text-sm">{item}</span>
                   </li>

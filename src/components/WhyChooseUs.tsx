@@ -14,7 +14,7 @@ const features = [
   },
   {
     icon: Award,
-    title: 'Luxury Cinematic Editing',
+    title: 'Premium Cinematic Editing',
     description: 'Our editing is deliberate and unhurried. Colour, light, pacing — everything is worked on until it feels right.',
   },
   {
@@ -30,7 +30,7 @@ const features = [
 ]
 
 const stats = [
-  { number: 100, label: 'Luxury Weddings', suffix: '+' },
+  { number: 100, label: 'Premium Weddings', suffix: '+' },
   { number: 5, label: 'Years', suffix: '+' },
   { number: 20, label: 'Destinations', suffix: '+' },
   { number: 100, label: 'Client Satisfaction', suffix: '%' },

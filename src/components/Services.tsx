@@ -38,7 +38,7 @@ const services = [
   },
   {
     icon: Book,
-    title: 'Luxury Albums',
+    title: 'Premium Albums',
     description: 'Handmade albums built to last — the kind you leave on the coffee table for guests to flip through.',
   },
   {

@@ -104,7 +104,7 @@ export default function Navbar() {
                       'text-xs tracking-[0.2em] uppercase transition-all duration-400 relative py-2 font-medium',
                       activeSection === item.href.replace('#', '')
                         ? 'text-primary'
-                        : 'text-textLight hover:text-primary'
+                        : isScrolled ? 'text-textLight hover:text-primary' : 'text-primary hover:text-primaryLight'
                     )}
                   >
                     {item.name}

@@ -31,7 +31,7 @@ export default function PreWedding() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [lightboxIndex, setLightboxIndex] = useState(0)
 
-  const displayImages = showAllImages ? preWeddingImages : preWeddingImages.slice(0, 6)
+  const displayImages = showAllImages ? preWeddingImages : preWeddingImages.slice(0, 15)
 
   return (
     <section id="prewedding" className="section-padding bg-gradient-luxury-soft relative overflow-hidden">

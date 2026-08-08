@@ -90,7 +90,7 @@ export default function OurStory() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-12">
               {[
                 { icon: Target, title: 'Mission', desc: 'To craft visual legacies so vivid, future generations feel present.' },
-                { icon: Eye, title: 'Vision', desc: 'To redefine luxury wedding storytelling across India.' },
+                { icon: Eye, title: 'Vision', desc: 'To redefine premium wedding storytelling across India.' },
                 { icon: Award, title: 'Experience', desc: '5+ years. 100+ weddings. Zero compromises.' },
                 { icon: Heart, title: 'Values', desc: 'Discretion, artistry, and an obsession with excellence.' },
               ].map((item, index) => (

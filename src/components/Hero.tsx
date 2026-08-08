@@ -99,24 +99,29 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.5 }}
-          className="mb-8"
+          className="mb-6"
         >
-          <p className="text-primaryLight tracking-[0.3em] text-sm uppercase font-medium drop-shadow-lg">Luxury Wedding Photography & Cinematography</p>
+          <p className="text-primaryLight tracking-[0.4em] text-xs uppercase font-medium drop-shadow-lg">Premium Wedding Photography & Cinematography</p>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.7 }}
-          className="mb-12"
+          className="mb-8"
         >
-          <div className="flex items-baseline justify-center">
-            <span className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl"><span className="text-[1.45em] relative -top-[0.15em] inline-block">4</span>EVER</span>
+          <p className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.15em] text-white/80 leading-snug drop-shadow-xl mb-3">
+            Where Every Frame
+          </p>
+          <div className="font-heading text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[9rem] font-semibold tracking-[0.08em] text-white leading-[0.95] drop-shadow-2xl">
+            Becomes <span className="relative -top-[0.15em] inline-block">4</span>ever
           </div>
-          <SplitText
-            text="MOMENTS"
-            className="font-heading text-6xl md:text-8xl lg:text-9xl xl:text-[10rem] font-light tracking-[0.25em] text-white leading-[0.9] drop-shadow-2xl"
-            delay={0.15}
+          {/* Decorative rule */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.2, delay: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mx-auto mt-6 h-px w-40 bg-gradient-to-r from-transparent via-primaryLight to-transparent"
           />
         </motion.div>
 
@@ -126,7 +131,7 @@ export default function Hero() {
           transition={{ duration: 1.5, delay: 0.9 }}
           className="mb-16"
         >
-          <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl text-white/95 max-w-3xl leading-relaxed tracking-wide font-light drop-shadow-lg px-4 sm:px-0">
+          <p className="font-heading text-base sm:text-lg md:text-xl lg:text-2xl text-white/75 max-w-2xl leading-relaxed tracking-widest font-light drop-shadow-lg px-4 sm:px-0 uppercase">
             Crafting timeless wedding stories
           </p>
         </motion.div>
