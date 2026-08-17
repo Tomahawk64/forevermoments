@@ -131,7 +131,7 @@ export default function Testimonials() {
                         <div className="p-8 md:p-12 flex flex-col justify-center bg-white/12 backdrop-blur-xl">
                           <div className="flex gap-1 mb-6">
                             {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star key={i} className="text-[#A855F7] fill-[#A855F7] w-5 h-5" />
+                              <Star key={i} className="text-[#6D28D9] fill-[#6D28D9] w-5 h-5" />
                             ))}
                           </div>
 
@@ -141,7 +141,7 @@ export default function Testimonials() {
 
                           <div>
                             <h4 className="font-heading text-xl text-text mb-1 font-medium">{testimonial.name}</h4>
-                            <p className="text-[#A855F7] text-sm tracking-[0.2em] uppercase font-semibold mb-1">{testimonial.location}</p>
+                            <p className="text-[#5B21B6] text-sm tracking-[0.2em] uppercase font-semibold mb-1">{testimonial.location}</p>
                             <p className="text-textMuted text-xs">{testimonial.date}</p>
                           </div>
                         </div>
@@ -172,6 +172,7 @@ export default function Testimonials() {
     </section>
   )
 }
+
 
 
 

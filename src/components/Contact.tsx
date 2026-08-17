@@ -110,7 +110,7 @@ export default function Contact() {
                   </label>
                   <input
                     {...register('name')}
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -125,7 +125,7 @@ export default function Contact() {
                   <input
                     {...register('email')}
                     type="email"
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -141,7 +141,7 @@ export default function Contact() {
                   </label>
                   <input
                     {...register('phone')}
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                     placeholder="+91 89205 57478"
                   />
                   {errors.phone && (
@@ -156,7 +156,7 @@ export default function Contact() {
                   <input
                     {...register('eventDate')}
                     type="date"
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                   />
                   {errors.eventDate && (
                     <p className="text-red-500 text-xs mt-2">{errors.eventDate.message}</p>
@@ -171,7 +171,7 @@ export default function Contact() {
                   </label>
                   <select
                     {...register('eventType')}
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                   >
                     <option value="" className="bg-white text-text">Select event type</option>
                     <option value="wedding" className="bg-white text-text">Wedding</option>
@@ -191,7 +191,7 @@ export default function Contact() {
                   </label>
                   <input
                     {...register('venue')}
-                    className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                    className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                     placeholder="Wedding venue location"
                   />
                   {errors.venue && (
@@ -206,7 +206,7 @@ export default function Contact() {
                 </label>
                 <select
                   {...register('budget')}
-                  className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
+                  className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400"
                 >
                   <option value="" className="bg-white text-text">Select budget range</option>
                   <option value="1-3" className="bg-white text-text">₹1-3 Lakhs</option>
@@ -227,7 +227,7 @@ export default function Contact() {
                 <textarea
                   {...register('message')}
                   rows={5}
-                  className="w-full bg-white/15 backdrop-blur-sm border border-[rgba(255,255,255,0.35)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400 resize-none"
+                  className="w-full bg-white/60 border border-[rgba(90,33,182,0.25)] rounded-input px-5 py-4 text-text placeholder:text-[#4A2875] focus:border-[#A855F7] focus:shadow-[0_0_20px_rgba(168,85,247,0.25)] focus:outline-none transition-all duration-400 resize-none"
                   placeholder="Tell us about your dream wedding..."
                 />
                 {errors.message && (
@@ -273,6 +273,7 @@ export default function Contact() {
     </section>
   )
 }
+
 
 
 

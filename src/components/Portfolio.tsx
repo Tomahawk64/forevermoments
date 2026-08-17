@@ -109,10 +109,10 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.03 }}
-              className={`px-7 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-400 rounded-full font-medium ${
+              className={`px-7 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-400 rounded-full font-semibold ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-[#BA88F8] via-[#A855F7] to-[#8225D4] text-white shadow-[0_6px_25px_rgba(168,85,247,0.4)]'
-                  : 'text-[#E5D8FF] hover:text-[#F0E8FF] hover:bg-[#FFFFFF] border border-[#E2D0F8] bg-[#FFFFFF]/80'
+                  ? 'bg-gradient-to-r from-[#7C3AED] via-[#6D28D9] to-[#5B21B6] text-white shadow-[0_6px_25px_rgba(124,58,237,0.45)]'
+                  : 'text-[#3D1A6E] hover:text-[#5B21B6] hover:bg-white border border-[rgba(90,33,182,0.25)] bg-white/70'
               }`}
             >
               {category}
