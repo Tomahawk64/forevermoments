@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Image from 'next/image'
+import LazyImage from './ui/LazyImage'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import GlowCard from './ui/GlowCard'
@@ -83,13 +83,11 @@ export default function PreWedding() {
                       whileHover={{ scale: 1.15 }}
                       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
-                      <Image
+                      <LazyImage
                         src={image.src}
                         alt={image.title}
-                        fill
-                        className="object-cover"
                         sizes="(max-width: 640px) 240px, (max-width: 768px) 300px, 380px"
-                        quality={75}
+                        quality={70}
                         priority={index < 3}
                       />
                     </motion.div>
@@ -186,5 +184,6 @@ export default function PreWedding() {
     </section>
   )
 }
+
 
 

@@ -2,12 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import GlowCard from './ui/GlowCard'
 import SplitText from './ui/SplitText'
 import PremiumButton from './ui/PremiumButton'
+import LazyImage from './ui/LazyImage'
 
 const familyImages = [
   { id: 1, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img1.jpg', title: 'Joyful Reunion', location: 'Delhi' },
@@ -86,20 +86,18 @@ export default function FamilyMoments() {
               style={{ perspective: '1000px' }}
             >
               <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/20 transition-all duration-700">
-                <div className="relative aspect-square overflow-hidden bg-surfaceLight">
+                <div className="relative aspect-square overflow-hidden bg-[#C9AAFA]/40">
                   <motion.div
                     className="absolute inset-0"
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.15 }}
                     transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                   >
-                    <Image
+                    <LazyImage
                       src={image.src}
                       alt={image.title}
-                      fill
-                      className="object-cover"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      quality={75}
+                      quality={70}
                       priority={index < 4}
                     />
                   </motion.div>

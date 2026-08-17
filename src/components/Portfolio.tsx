@@ -2,13 +2,13 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import GlowCard from './ui/GlowCard'
 import ImageReveal from './ui/ImageReveal'
 import SplitText from './ui/SplitText'
 import PremiumButton from './ui/PremiumButton'
+import LazyImage from './ui/LazyImage'
 
 const portfolioImages = [
   { id: 4, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/wed4.jpeg', category: 'Wedding', title: 'Sacred Vows', location: 'Varanasi' },
@@ -143,24 +143,22 @@ export default function Portfolio() {
                 style={{ perspective: '1000px' }}
               >
                 <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/25 transition-all duration-700">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-surfaceLight">
-                    <motion.div
-                      className="absolute inset-0"
-                      initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.15 }}
-                      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                    >
-                    <Image
-                        src={image.src}
-                        alt={image.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={75}
-                        priority={index < 3}
-                        onError={() => setBrokenImages(prev => new Set(prev).add(image.id))}
-                      />
-                    </motion.div>
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[#C9AAFA]/40">
+                      <motion.div
+                        className="absolute inset-0"
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.15 }}
+                        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      >
+                        <LazyImage
+                          src={image.src}
+                          alt={image.title}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          quality={70}
+                          priority={index < 6}
+                          onError={() => setBrokenImages(prev => new Set(prev).add(image.id))}
+                        />
+                      </motion.div>
                     
                     {/* Luxury Overlay */}
                     <motion.div 
