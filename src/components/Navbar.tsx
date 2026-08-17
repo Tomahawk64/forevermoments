@@ -64,8 +64,8 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
           isScrolled
-            ? 'bg-[#DDC5FC] backdrop-blur-xl border-[rgba(90,33,182,0.15)] shadow-[0_4px_20px_rgba(90,33,182,0.12)] py-3.5'
-            : 'bg-[#DDC5FC] backdrop-blur-md border-[rgba(90,33,182,0.10)] py-5'
+            ? 'bg-white backdrop-blur-xl border-[rgba(90,33,182,0.15)] shadow-[0_4px_20px_rgba(90,33,182,0.12)] py-3.5'
+            : 'bg-white backdrop-blur-md border-[rgba(90,33,182,0.10)] py-5'
         )}
       >
         <div className="container-custom flex items-center justify-between">
@@ -132,7 +132,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#DDC5FC]/98 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-40 bg-white/98 backdrop-blur-xl lg:hidden"
           >
             <div className="flex flex-col items-center justify-center h-full space-y-10">
               {navItems.map((item, index) => (
@@ -162,6 +162,7 @@ export default function Navbar() {
     </>
   )
 }
+
 
 
 

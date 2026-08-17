@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 interface LazyImageProps {
@@ -17,8 +17,8 @@ interface LazyImageProps {
 }
 
 /**
- * LazyImage — preloads images 800px before they enter the viewport
- * so they're ready by the time the user scrolls to them.
+ * LazyImage — loads instantly with browser async decoding and smooth fade-in
+ * backed by shimmer placeholder.
  */
 export default function LazyImage({
   src,
@@ -32,63 +32,42 @@ export default function LazyImage({
   onLoad,
   onError,
 }: LazyImageProps) {
-  const [shouldLoad, setShouldLoad] = useState(priority)
   const [isLoaded, setIsLoaded] = useState(false)
-  const wrapperRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (priority) return // already loading
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoad(true)
-          observer.disconnect()
-        }
-      },
-      {
-        rootMargin: '1200px 0px', // start loading ~2 screens before entering viewport
-        threshold: 0,
-      }
-    )
-
-    if (wrapperRef.current) observer.observe(wrapperRef.current)
-
-    return () => observer.disconnect()
-  }, [priority])
 
   return (
-    <div ref={wrapperRef} className="absolute inset-0">
+    <div className="absolute inset-0">
       {/* Shimmer skeleton shown while image hasn't loaded */}
       {!isLoaded && (
         <div
-          className="absolute inset-0 z-10"
+          className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, #C9AAFA 25%, #E0CCFF 50%, #C9AAFA 75%)',
+              'linear-gradient(90deg, #F3ECF8 25%, #FAF7FD 50%, #F3ECF8 75%)',
             backgroundSize: '200% 100%',
             animation: 'shimmer 1.5s ease-in-out infinite',
           }}
         />
       )}
 
-      {shouldLoad && (
-        <Image
-          src={src}
-          alt={alt}
-          fill={fill}
-          className={`${objectFit === 'cover' ? 'object-cover' : 'object-contain'} transition-opacity duration-500 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          } ${className}`}
-          sizes={sizes}
-          quality={quality}
-          onLoad={() => {
-            setIsLoaded(true)
-            onLoad?.()
-          }}
-          onError={onError}
-        />
-      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill={fill}
+        className={`${objectFit === 'cover' ? 'object-cover' : 'object-contain'} transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        } ${className}`}
+        sizes={sizes || '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+        quality={quality}
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        onLoad={() => {
+          setIsLoaded(true)
+          onLoad?.()
+        }}
+        onError={onError}
+      />
     </div>
   )
 }
+

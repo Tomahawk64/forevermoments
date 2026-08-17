@@ -4,6 +4,7 @@ const path = require('path')
 const nextConfig = {
   outputFileTracingRoot: path.join(__dirname, '.'),
   images: {
+    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     qualities: [70, 75, 85],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],

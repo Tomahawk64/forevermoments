@@ -5,6 +5,7 @@ import SmoothScroll from '@/components/SmoothScroll'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollBackground from '@/components/ScrollBackground'
+import ImagePreloader from '@/components/ImagePreloader'
 
 export const metadata: Metadata = {
   title: '4ever Moments | Luxury Wedding Photography & Cinematography',
@@ -59,6 +60,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body bg-background text-text antialiased">
+        <ImagePreloader />
         <ScrollBackground />
         <LoadingScreen />
         <SmoothScroll />

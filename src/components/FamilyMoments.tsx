@@ -45,7 +45,7 @@ export default function FamilyMoments() {
   const displayImages = showAllImages ? familyImages : familyImages.slice(0, 8)
 
   return (
-    <section id="family" className="section-padding bg-[#C9AAFA] relative overflow-hidden">
+    <section id="family" className="section-padding bg-white relative overflow-hidden">
       {/* Gradient Blobs */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-40 right-20 w-80 h-80 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
@@ -86,7 +86,7 @@ export default function FamilyMoments() {
               style={{ perspective: '1000px' }}
             >
               <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/20 transition-all duration-700">
-                <div className="relative aspect-square overflow-hidden bg-[#C9AAFA]/40">
+                <div className="relative aspect-square overflow-hidden bg-white/40">
                   <motion.div
                     className="absolute inset-0"
                     initial={{ scale: 1 }}
@@ -191,6 +191,7 @@ export default function FamilyMoments() {
     </section>
   )
 }
+
 
 
 

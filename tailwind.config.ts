@@ -37,11 +37,11 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-luxury': 'linear-gradient(135deg, #E5D2FD, #DDC5FC, #D5B8FB)',
-        'gradient-luxury-soft': 'linear-gradient(135deg, #DDC5FC, #E5D2FD, #D5B8FB)',
-        'gradient-luxury-warm': 'linear-gradient(135deg, #E5D2FD, #D5B8FB)',
-        'gradient-lilac': 'linear-gradient(135deg, #BA88F8, #A855F7, #8225D4)',
-        'gradient-lilac-soft': 'linear-gradient(135deg, #B07CF0, #A855F7)',
+        'gradient-luxury': 'linear-gradient(135deg, #FFFFFF, #FAF7FD, #F3ECF8)',
+        'gradient-luxury-soft': 'linear-gradient(135deg, #FFFFFF, #FAF7FD, #FFFFFF)',
+        'gradient-luxury-warm': 'linear-gradient(135deg, #FAF7FD, #F3ECF8)',
+        'gradient-lilac': 'linear-gradient(135deg, #BA88F8, #9333EA, #7C3AED)',
+        'gradient-lilac-soft': 'linear-gradient(135deg, #C084FC, #A855F7)',
       },
       boxShadow: {
         'luxury': '0 20px 50px rgba(168, 85, 247, 0.08)',

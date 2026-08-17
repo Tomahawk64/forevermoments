@@ -33,12 +33,12 @@ export default function GlowCard({ children, className = '' }: GlowCardProps) {
       className={`relative overflow-hidden rounded-xl ${className}`}
       style={{
         background: isHovered
-          ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.25), rgba(255,255,255,0.12) 50%), rgba(255, 255, 255, 0.14)`
-          : 'rgba(255, 255, 255, 0.12)',
-        backdropFilter: 'blur(24px)',
-        WebkitBackdropFilter: 'blur(24px)',
-        border: '1px solid rgba(255, 255, 255, 0.30)',
-        boxShadow: '0 8px 32px rgba(130, 37, 212, 0.15), inset 0 1px 0 rgba(255,255,255,0.25)',
+          ? `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(168, 85, 247, 0.08), transparent 50%), rgba(255, 255, 255, 0.98)`
+          : 'rgba(255, 255, 255, 0.92)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(130, 37, 212, 0.12)',
+        boxShadow: '0 10px 35px rgba(130, 37, 212, 0.06)',
       }}
       transition={{
         background: { duration: 0 },

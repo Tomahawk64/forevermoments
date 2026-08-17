@@ -9,24 +9,24 @@ nextjs-portal { display: none !important; }
   :root {
     --font-cormorant: 'Cormorant Garamond', Georgia, serif;
     --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
-    --background: #DDC5FC;
-    --surface: #E5D2FD;
-    --surfaceLight: #D5B8FB;
-    --surfaceLighter: #EAD8FE;
-    --primary: #7C3AED;
-    --primaryLight: #8B5CF6;
-    --primaryDark: #5B21B6;
-    --primaryDeep: #4C1D95;
-    --accent: #A78BFA;
-    --text: #1A0530;
-    --textLight: #2D1050;
-    --textMuted: #3D1A6E;
-    --textSoft: #5B3A8A;
-    --luxuryLavender: #DDC5FC;
-    --luxuryLilac: #B07CF0;
-    --luxuryViolet: #7C3AED;
-    --luxuryPlum: #5B21B6;
-    --luxuryMist: #D5B8FB;
+    --background: #FFFFFF;
+    --surface: #FAF7FD;
+    --surfaceLight: #F3ECF8;
+    --surfaceLighter: #FAF5FC;
+    --primary: #8225D4;
+    --primaryLight: #9333EA;
+    --primaryDark: #6B21A8;
+    --primaryDeep: #581C87;
+    --accent: #A855F7;
+    --text: #130B1E;
+    --textLight: #3B2E4C;
+    --textMuted: #6B5B7E;
+    --textSoft: #9586A8;
+    --luxuryLavender: #FAF7FD;
+    --luxuryLilac: #A855F7;
+    --luxuryViolet: #8225D4;
+    --luxuryPlum: #6B21A8;
+    --luxuryMist: #F3ECF8;
     
     /* Spacing scale - 8px system */
     --spacing-xs: 0.5rem;
@@ -60,14 +60,14 @@ nextjs-portal { display: none !important; }
   }
 
   html {
-    background-color: #DDC5FC;
-    color: #1F0D35;
+    background-color: #FFFFFF;
+    color: #130B1E;
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #DDC5FC;
-    color: #1F0D35;
+    background-color: #FFFFFF;
+    color: #130B1E;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -107,16 +107,16 @@ nextjs-portal { display: none !important; }
 
 @layer components {
   .glass {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.30);
-    box-shadow: 0 8px 32px rgba(130, 37, 212, 0.12), inset 0 1px 0 rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(130, 37, 212, 0.12);
+    box-shadow: 0 10px 30px rgba(130, 37, 212, 0.06);
   }
 
   .glass-card {
     @apply glass rounded-luxury p-8 transition-all duration-500 hover:shadow-luxury;
-    border-color: rgba(255,255,255,0.35);
+    border-color: rgba(130, 37, 212, 0.16);
   }
 
   .glass-card-dark {
