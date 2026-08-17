@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             <div className="lg:col-span-1">
               <h3 className="font-heading text-3xl font-light tracking-wider text-white mb-6">
-                <span className="text-[1.45em] relative -top-[0.15em] inline-block text-[#E9BFFF]">4</span>EVER MOMENTS
+                <span className="text-[1.35em] relative -top-[0.25em] inline-block font-medium text-[#E9BFFF]">4</span>EVER MOMENTS
               </h3>
               <p className="text-[#DBC4F5] text-sm leading-relaxed mb-6">
                 Real weddings. Real moments. Captured with care across North India and beyond.
