@@ -10,31 +10,30 @@ import SplitText from './ui/SplitText'
 import PremiumButton from './ui/PremiumButton'
 
 const familyImages = [
-  { id: 1, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img1.jpg', title: 'Joyful Reunion', location: 'Delhi' },
-  { id: 2, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img2.jpg', title: 'Family Bond', location: 'Mumbai' },
-  { id: 3, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img3.jpg', title: 'Celebration Time', location: 'Jaipur' },
-  { id: 4, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img10.jpg', title: 'Together Forever', location: 'Udaipur' },
-  { id: 5, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img11.jpg', title: 'Happy Moments', location: 'Goa' },
-  { id: 6, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img12.jpg', title: 'Love & Laughter', location: 'Bangalore' },
-  { id: 7, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img13.jpg', title: 'Precious Times', location: 'Chennai' },
-  { id: 8, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img14.jpg', title: 'Family Pride', location: 'Hyderabad' },
-  { id: 9, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img15.jpg', title: 'Generations', location: 'Kolkata' },
-  { id: 10, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img16.jpg', title: 'Sacred Bonds', location: 'Varanasi' },
-  { id: 11, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img17.jpg', title: 'Warm Embrace', location: 'Pune' },
-  { id: 12, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img18.jpg', title: 'Celebration', location: 'Ahmedabad' },
-  { id: 13, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img19.jpg', title: 'Togetherness', location: 'Lucknow' },
-  { id: 14, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img20.jpg', title: 'Family Love', location: 'Chandigarh' },
-  { id: 15, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img21.jpg', title: 'Joyful Day', location: 'Jaipur' },
-  { id: 16, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img22.jpg', title: 'Beautiful Memories', location: 'Udaipur' },
-  { id: 17, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img23.jpg', title: 'Family Fun', location: 'Goa' },
-  { id: 18, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img24.jpg', title: 'Happy Family', location: 'Mumbai' },
-  { id: 19, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img25.jpg', title: 'Special Moments', location: 'Delhi' },
-  { id: 20, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img26.jpg', title: 'Time Together', location: 'Bangalore' },
-  { id: 21, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img27.jpg', title: 'Cherished Times', location: 'Hyderabad' },
-  { id: 22, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img28.jpg', title: 'Family Unity', location: 'Chennai' },
-  { id: 23, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img29.jpg', title: 'Love Forever', location: 'Kolkata' },
-  { id: 24, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img30.jpg', title: 'Golden Moments', location: 'Pune' },
-  { id: 25, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family time/img31.jpg', title: 'Eternal Bonds', location: 'Ahmedabad' },
+  { id: 1, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img1.jpg', title: 'Joyful Reunion', location: 'Delhi' },
+  { id: 2, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img2.jpg', title: 'Family Bond', location: 'Mumbai' },
+  { id: 3, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img3.jpg', title: 'Celebration Time', location: 'Jaipur' },
+  { id: 4, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img10.jpg', title: 'Together Forever', location: 'Udaipur' },
+  { id: 5, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img11.jpg', title: 'Happy Moments', location: 'Goa' },
+  { id: 6, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img12.jpg', title: 'Love & Laughter', location: 'Bangalore' },
+  { id: 7, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img13.jpg', title: 'Precious Times', location: 'Chennai' },
+  { id: 8, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img14.jpg', title: 'Family Pride', location: 'Hyderabad' },
+  { id: 9, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img15.jpg', title: 'Generations', location: 'Kolkata' },
+  { id: 10, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img16.jpg', title: 'Sacred Bonds', location: 'Varanasi' },
+  { id: 11, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img17.jpg', title: 'Warm Embrace', location: 'Pune' },
+  { id: 12, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img18.jpg', title: 'Celebration', location: 'Ahmedabad' },
+  { id: 13, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img19.jpg', title: 'Togetherness', location: 'Lucknow' },
+  { id: 14, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img21.jpg', title: 'Joyful Day', location: 'Jaipur' },
+  { id: 15, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img22.jpg', title: 'Beautiful Memories', location: 'Udaipur' },
+  { id: 16, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img23.jpg', title: 'Family Fun', location: 'Goa' },
+  { id: 17, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img24.jpg', title: 'Happy Family', location: 'Mumbai' },
+  { id: 18, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img25.jpg', title: 'Special Moments', location: 'Delhi' },
+  { id: 19, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img26.jpg', title: 'Time Together', location: 'Bangalore' },
+  { id: 20, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img27.jpg', title: 'Cherished Times', location: 'Hyderabad' },
+  { id: 21, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img28.jpg', title: 'Family Unity', location: 'Chennai' },
+  { id: 22, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img29.jpg', title: 'Love Forever', location: 'Kolkata' },
+  { id: 23, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img30.jpg', title: 'Golden Moments', location: 'Pune' },
+  { id: 24, src: 'https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/Family%20time/img31.jpg', title: 'Eternal Bonds', location: 'Ahmedabad' },
 ]
 
 export default function FamilyMoments() {
@@ -46,10 +45,10 @@ export default function FamilyMoments() {
   const displayImages = showAllImages ? familyImages : familyImages.slice(0, 8)
 
   return (
-    <section id="family" className="section-padding bg-background relative overflow-hidden">
+    <section id="family" className="section-padding bg-[#C9AAFA] relative overflow-hidden">
       {/* Gradient Blobs */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 left-20 w-96 h-96 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -59,7 +58,7 @@ export default function FamilyMoments() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Between The Ceremonies</p>
+          <p className="text-[#5B21B6] tracking-[0.3em] text-sm uppercase font-semibold mb-6">Between The Ceremonies</p>
           <SplitText
             text="Family/Birthdays"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -86,7 +85,7 @@ export default function FamilyMoments() {
               onMouseLeave={() => setHoveredIndex(null)}
               style={{ perspective: '1000px' }}
             >
-              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
+              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/20 transition-all duration-700">
                 <div className="relative aspect-square overflow-hidden bg-surfaceLight">
                   <motion.div
                     className="absolute inset-0"
@@ -101,12 +100,13 @@ export default function FamilyMoments() {
                       className="object-cover"
                       sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       quality={75}
+                      priority={index < 4}
                     />
                   </motion.div>
                   
                   {/* Luxury Overlay */}
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent opacity-0"
+                    className="absolute inset-0 bg-gradient-to-t from-[#130A1F]/90 via-[#130A1F]/40 to-transparent opacity-0"
                     animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
                     transition={{ duration: 0.5 }}
                   />
@@ -124,8 +124,8 @@ export default function FamilyMoments() {
                   
                   {/* Border Glow */}
                   <motion.div
-                    className="absolute inset-0 rounded-luxury border-2 border-primary/0"
-                    animate={{ borderColor: hoveredIndex === index ? 'rgba(203, 148, 247, 0.4)' : 'rgba(203, 148, 247, 0)' }}
+                    className="absolute inset-0 rounded-luxury border-2 border-[#A855F7]/0"
+                    animate={{ borderColor: hoveredIndex === index ? 'rgba(176, 124, 240, 0.4)' : 'rgba(176, 124, 240, 0)' }}
                     transition={{ duration: 0.4 }}
                   />
                   
@@ -186,9 +186,14 @@ export default function FamilyMoments() {
       <Lightbox
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
-        slides={familyImages.map(img => ({ src: img.src }))}
+        slides={displayImages.map(img => ({ src: img.src }))}
         index={lightboxIndex}
+        carousel={{ preload: 3 }}
       />
     </section>
   )
 }
+
+
+
+

@@ -1,25 +1,10 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter } from 'next/font/google'
 import './globals.css'
 import LoadingScreen from '@/components/LoadingScreen'
 import SmoothScroll from '@/components/SmoothScroll'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollBackground from '@/components/ScrollBackground'
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-inter',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: '4ever Moments | Luxury Wedding Photography & Cinematography',
@@ -57,12 +42,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="light">
       <head>
-        {/* Preload the first hero image so it renders before React hydrates */}
+        {/* Cloudflare R2 CDN Preconnect & DNS-Prefetch */}
+        <link rel="dns-prefetch" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev" />
+        <link rel="preconnect" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev" crossOrigin="anonymous" />
+        
+        {/* Preload the first three hero images so they render instantly before React hydrates */}
         <link rel="preload" as="image" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero1.jpg" fetchPriority="high" />
+        <link rel="preload" as="image" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero2.jpg" />
+        <link rel="preload" as="image" href="https://pub-c41ff4189ff648c5845a1363c6ca266d.r2.dev/hero3.jpg" />
+        
+        {/* Google Fonts loaded via HTML header to support robust offline development compilation */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
-      <body className={`${cormorant.variable} ${inter.variable} font-body bg-background text-warmWhite antialiased`}>
+      <body className="font-body bg-background text-text antialiased">
         <ScrollBackground />
         <LoadingScreen />
         <SmoothScroll />

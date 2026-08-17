@@ -1,8 +1,13 @@
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingRoot: path.join(__dirname, '.'),
   images: {
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
-    qualities: [75, 80, 85],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {
@@ -22,6 +27,14 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Disable filesystem cache in development on Windows to prevent
+      // ENOENT pack.gz race conditions and webpack HMR crashes
+      config.cache = false
+    }
+    return config
   },
 }
 

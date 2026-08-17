@@ -70,10 +70,10 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="section-padding bg-background relative overflow-hidden">
+    <section id="portfolio" className="section-padding bg-[#C9AAFA] relative overflow-hidden">
       {/* Gradient Blobs */}
-      <div className="absolute top-20 left-20 w-96 h-96 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 left-20 w-96 h-96 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -83,7 +83,7 @@ export default function Portfolio() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Our Work</p>
+          <p className="text-[#5B21B6] tracking-[0.3em] text-sm uppercase font-semibold mb-6">Our Work</p>
           <SplitText
             text="Portfolio"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -109,10 +109,10 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.03 }}
-              className={`px-6 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-500 rounded-sm ${
+              className={`px-7 py-3 text-xs tracking-[0.2em] uppercase transition-all duration-400 rounded-full font-medium ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-primary to-primaryDark text-background shadow-glow rounded-button'
-                  : 'text-textLight hover:text-primary hover:bg-surface/30 rounded-button'
+                  ? 'bg-gradient-to-r from-[#BA88F8] via-[#A855F7] to-[#8225D4] text-white shadow-[0_6px_25px_rgba(168,85,247,0.4)]'
+                  : 'text-[#E5D8FF] hover:text-[#F0E8FF] hover:bg-[#FFFFFF] border border-[#E2D0F8] bg-[#FFFFFF]/80'
               }`}
             >
               {category}
@@ -142,7 +142,7 @@ export default function Portfolio() {
                 onClick={() => openLightbox(index)}
                 style={{ perspective: '1000px' }}
               >
-                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
+                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/25 transition-all duration-700">
                   <div className="relative aspect-[4/5] overflow-hidden bg-surfaceLight">
                     <motion.div
                       className="absolute inset-0"
@@ -156,14 +156,15 @@ export default function Portfolio() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        quality={80}
+                        quality={75}
+                        priority={index < 3}
                         onError={() => setBrokenImages(prev => new Set(prev).add(image.id))}
                       />
                     </motion.div>
                     
                     {/* Luxury Overlay */}
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/60 via-transparent to-transparent opacity-0"
+                      className="absolute inset-0 bg-gradient-to-t from-[#130A1F]/70 via-transparent to-transparent opacity-0"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
@@ -236,14 +237,19 @@ export default function Portfolio() {
           </motion.div>
         )}
 
-        {/* Lightbox */}
         <Lightbox
           open={lightboxOpen}
           close={() => setLightboxOpen(false)}
-          slides={validImages.map(img => ({ src: img.src }))}
+          slides={displayImages.map(img => ({ src: img.src }))}
           index={lightboxIndex}
+          carousel={{ preload: 3 }}
         />
       </div>
     </section>
   )
 }
+
+
+
+
+

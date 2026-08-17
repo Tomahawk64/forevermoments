@@ -24,8 +24,8 @@ export default function PremiumButton({
   
   const variantStyles = {
     primary: 'bg-gradient-to-r from-primary to-primaryDark text-white shadow-luxury hover:shadow-glow',
-    secondary: 'bg-gradient-to-r from-luxuryCream to-luxuryLavender text-text shadow-luxury hover:shadow-glow',
-    outline: 'bg-transparent border-2 border-primary/50 text-primary hover:bg-primary hover:text-background'
+    secondary: 'bg-gradient-to-r from-[#C9ABF5] to-[#8845D6] text-text shadow-luxury hover:shadow-glow border border-[#E2D0F8]',
+    outline: 'bg-transparent border-2 border-primary/50 text-primary hover:bg-primary hover:text-white'
   }
   
   const sizeStyles = {
@@ -75,3 +75,5 @@ export default function PremiumButton({
     </motion.button>
   )
 }
+
+

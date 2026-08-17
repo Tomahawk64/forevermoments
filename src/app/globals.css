@@ -7,22 +7,26 @@ nextjs-portal { display: none !important; }
 
 @layer base {
   :root {
-    --background: #FAFAFC;
-    --surface: #F7F3FF;
-    --surfaceLight: #F4E8FF;
-    --surfaceLighter: #F6F4FA;
-    --primary: #CB94F7;
-    --primaryLight: #D8AFFF;
-    --primaryDark: #A76DFF;
-    --primaryDeep: #7C3AED;
-    --accent: #E9D6FF;
-    --text: #1F1235;
-    --textLight: #2E1A47;
-    --textMuted: #6B4C7A;
-    --textSoft: #9B7AA8;
-    --luxuryDark: #24153D;
-    --luxuryCream: #F7F4FF;
-    --luxuryLavender: #EDD8FF;
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --background: #DDC5FC;
+    --surface: #E5D2FD;
+    --surfaceLight: #D5B8FB;
+    --surfaceLighter: #EAD8FE;
+    --primary: #7C3AED;
+    --primaryLight: #8B5CF6;
+    --primaryDark: #5B21B6;
+    --primaryDeep: #4C1D95;
+    --accent: #A78BFA;
+    --text: #1A0530;
+    --textLight: #2D1050;
+    --textMuted: #3D1A6E;
+    --textSoft: #5B3A8A;
+    --luxuryLavender: #DDC5FC;
+    --luxuryLilac: #B07CF0;
+    --luxuryViolet: #7C3AED;
+    --luxuryPlum: #5B21B6;
+    --luxuryMist: #D5B8FB;
     
     /* Spacing scale - 8px system */
     --spacing-xs: 0.5rem;
@@ -55,25 +59,20 @@ nextjs-portal { display: none !important; }
     --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  html {
+    background-color: #DDC5FC;
+    color: #1F0D35;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-text;
+    background-color: #DDC5FC;
+    color: #1F0D35;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
     line-height: 1.7;
-  }
-
-  @media (min-width: 768px) {
-    body { font-size: 17px; }
-  }
-
-  @media (min-width: 1024px) {
-    body { font-size: 18px; }
-  }
-
-  html {
-    scroll-behavior: smooth;
   }
 
   /* Custom scrollbar - refined */
@@ -91,7 +90,7 @@ nextjs-portal { display: none !important; }
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/50;
+    @apply bg-primary/60;
   }
 
   /* Selection - refined */
@@ -108,23 +107,28 @@ nextjs-portal { display: none !important; }
 
 @layer components {
   .glass {
-    @apply bg-white/70 backdrop-blur-glass border border-primary/20;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    box-shadow: 0 8px 32px rgba(130, 37, 212, 0.12), inset 0 1px 0 rgba(255,255,255,0.25);
   }
 
   .glass-card {
-    @apply glass rounded-luxury p-8 transition-all duration-500 shadow-luxury;
+    @apply glass rounded-luxury p-8 transition-all duration-500 hover:shadow-luxury;
+    border-color: rgba(255,255,255,0.35);
   }
 
   .glass-card-dark {
-    @apply bg-white/10 backdrop-blur-glass border border-white/10 rounded-luxury p-8 transition-all duration-500;
+    @apply bg-[#1F142E]/90 text-white backdrop-blur-glass border border-white/10 rounded-luxury p-8 transition-all duration-500;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-primaryDark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#8225D4] via-[#A855F7] to-[#B07CF0] bg-clip-text text-transparent;
   }
 
   .text-gradient-luxury {
-    @apply bg-gradient-luxury bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#1F142E] via-[#A855F7] to-[#1F142E] bg-clip-text text-transparent;
   }
 
   .section-padding {

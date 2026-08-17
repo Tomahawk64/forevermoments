@@ -68,8 +68,8 @@ export default function Films() {
   return (
     <section id="films" className="section-padding bg-gradient-luxury-soft relative overflow-hidden">
       {/* Gradient Blobs */}
-      <div className="absolute top-40 right-20 w-80 h-80 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-40 right-20 w-80 h-80 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -79,7 +79,7 @@ export default function Films() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Cinematography</p>
+          <p className="text-[#5B21B6] tracking-[0.3em] text-sm uppercase font-semibold mb-6">Cinematography</p>
           <SplitText
             text="Film/Aerial Shoots"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -110,7 +110,7 @@ export default function Films() {
                 setPreviewVideo(null)
               }}
             >
-              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
+              <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/20 transition-all duration-700">
                 <div className="relative aspect-video overflow-hidden bg-surfaceLight">
                   {playingVideo === film.videoUrl ? (
                     <video
@@ -137,7 +137,7 @@ export default function Films() {
                       ) : (
                         <motion.div
                           className="absolute inset-0 bg-cover bg-center cursor-pointer"
-                          style={{ backgroundImage: `url(${film.thumbnail})` }}
+                          style={{ backgroundImage: `url("${film.thumbnail}")` }}
                           animate={{ scale: hoveredFilm === film.id ? 1.08 : 1 }}
                           transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
                           onClick={() => setPlayingVideo(film.videoUrl)}
@@ -146,7 +146,7 @@ export default function Films() {
                       
                       {/* Cinematic Light Sweep */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -skew-x-12 opacity-0"
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 opacity-0"
                         animate={{ 
                           x: hoveredFilm === film.id ? '100%' : '-100%',
                           opacity: hoveredFilm === film.id ? 1 : 0
@@ -156,16 +156,16 @@ export default function Films() {
                       
                       {/* Border Glow */}
                       <motion.div
-                        className="absolute inset-0 rounded-luxury border-2 border-primary/0"
-                        animate={{ borderColor: hoveredFilm === film.id ? 'rgba(203, 148, 247, 0.4)' : 'rgba(203, 148, 247, 0)' }}
+                        className="absolute inset-0 rounded-luxury border-2 border-[#A855F7]/0"
+                        animate={{ borderColor: hoveredFilm === film.id ? 'rgba(176, 124, 240, 0.4)' : 'rgba(176, 124, 240, 0)' }}
                         transition={{ duration: 0.4 }}
                       />
                       
                       {/* Netflix-style overlay */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent"
-                        initial={{ opacity: 0.5 }}
-                        animate={{ opacity: hoveredFilm === film.id ? 0.3 : 0.5 }}
+                        className="absolute inset-0 bg-gradient-to-t from-[#130A1F]/80 via-transparent to-transparent"
+                        initial={{ opacity: 0.4 }}
+                        animate={{ opacity: hoveredFilm === film.id ? 0.2 : 0.4 }}
                         transition={{ duration: 0.3 }}
                       />
                       
@@ -179,15 +179,15 @@ export default function Films() {
                         }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                       >
-                        <div className="glass rounded-luxury p-4">
+                        <div className="glass bg-white/12 rounded-luxury p-4 shadow-luxury border border-[rgba(255,255,255,0.30)]">
                           <div className="flex items-center gap-3 mb-2">
-                            <span className="px-2 py-1 bg-primary/30 text-white text-xs tracking-[0.2em] uppercase rounded">
+                            <span className="px-2.5 py-0.5 bg-[#A855F7]/15 text-[#8225D4] font-semibold text-xs tracking-[0.15em] uppercase rounded-full">
                               {film.category}
                             </span>
-                            <span className="text-white/60 text-xs">{film.duration}</span>
+                            <span className="text-[#3B1060] text-xs font-mono">{film.duration}</span>
                           </div>
-                          <h3 className="font-heading text-lg text-white font-light mb-1">{film.title}</h3>
-                          <p className="text-white/70 text-sm">{film.description}</p>
+                          <h3 className="font-heading text-lg text-[#F0E8FF] font-medium mb-1">{film.title}</h3>
+                          <p className="text-[#E5D8FF] text-sm">{film.description}</p>
                         </div>
                       </motion.div>
                       
@@ -201,15 +201,15 @@ export default function Films() {
                       >
                         <div className="relative">
                           <motion.div
-                            className="w-24 h-24 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center shadow-glow"
-                            animate={{ scale: hoveredFilm === film.id ? [1, 1.1, 1] : 1 }}
+                            className="w-20 h-20 rounded-full bg-gradient-to-r from-[#BA88F8] via-[#A855F7] to-[#8225D4] flex items-center justify-center shadow-[0_10px_35px_rgba(168,85,247,0.45)]"
+                            animate={{ scale: hoveredFilm === film.id ? [1, 1.08, 1] : 1 }}
                             transition={{ duration: 2, repeat: hoveredFilm === film.id ? Infinity : 0, ease: 'easeInOut' }}
                           >
-                            <Play className="text-white ml-2" size={36} fill="currentColor" />
+                            <Play className="text-white ml-1.5 fill-white" size={28} />
                           </motion.div>
                           {/* Ripple effect */}
                           <motion.div
-                            className="absolute inset-0 rounded-full border-2 border-primary/40"
+                            className="absolute inset-0 rounded-full border-2 border-[#B07CF0]/50"
                             animate={{ scale: [1, 1.5, 2], opacity: [0.6, 0.3, 0] }}
                             transition={{ duration: 1.5, repeat: hoveredFilm === film.id ? Infinity : 0 }}
                           />
@@ -272,3 +272,6 @@ export default function Films() {
     </section>
   )
 }
+
+
+

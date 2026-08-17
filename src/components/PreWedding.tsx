@@ -36,8 +36,8 @@ export default function PreWedding() {
   return (
     <section id="prewedding" className="section-padding bg-gradient-luxury-soft relative overflow-hidden">
       {/* Gradient Blobs */}
-      <div className="absolute top-40 left-20 w-96 h-96 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 right-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-40 left-20 w-96 h-96 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -47,7 +47,7 @@ export default function PreWedding() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Before The Big Day</p>
+          <p className="text-[#5B21B6] tracking-[0.3em] text-sm uppercase font-semibold mb-6">Before The Big Day</p>
           <SplitText
             text="Pre Wedding Stories"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
@@ -75,7 +75,7 @@ export default function PreWedding() {
                 onMouseLeave={() => setHoveredIndex(null)}
                 style={{ perspective: '1000px' }}
               >
-                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700">
+                <GlowCard className="p-0 overflow-hidden rounded-luxury hover:shadow-2xl hover:shadow-[#B07CF0]/20 transition-all duration-700">
                   <div className="relative aspect-[3/4] overflow-hidden bg-surfaceLight">
                     <motion.div
                       className="absolute inset-0"
@@ -88,14 +88,15 @@ export default function PreWedding() {
                         alt={image.title}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 300px, 400px"
-                        quality={80}
+                        sizes="(max-width: 640px) 240px, (max-width: 768px) 300px, 380px"
+                        quality={75}
+                        priority={index < 3}
                       />
                     </motion.div>
                     
                     {/* Luxury Overlay */}
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-t from-luxuryDark/90 via-luxuryDark/50 to-transparent opacity-0"
+                      className="absolute inset-0 bg-gradient-to-t from-[#130A1F]/90 via-[#130A1F]/40 to-transparent opacity-0"
                       animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
                       transition={{ duration: 0.5 }}
                     />
@@ -113,8 +114,8 @@ export default function PreWedding() {
                     
                     {/* Border Glow */}
                     <motion.div
-                      className="absolute inset-0 rounded-luxury border-2 border-primary/0"
-                      animate={{ borderColor: hoveredIndex === index ? 'rgba(203, 148, 247, 0.4)' : 'rgba(203, 148, 247, 0)' }}
+                      className="absolute inset-0 rounded-luxury border-2 border-[#A855F7]/0"
+                      animate={{ borderColor: hoveredIndex === index ? 'rgba(176, 124, 240, 0.4)' : 'rgba(176, 124, 240, 0)' }}
                       transition={{ duration: 0.4 }}
                     />
                     
@@ -178,9 +179,12 @@ export default function PreWedding() {
       <Lightbox
         open={lightboxOpen}
         close={() => setLightboxOpen(false)}
-        slides={preWeddingImages.map(img => ({ src: img.src }))}
+        slides={displayImages.map(img => ({ src: img.src }))}
         index={lightboxIndex}
+        carousel={{ preload: 3 }}
       />
     </section>
   )
 }
+
+

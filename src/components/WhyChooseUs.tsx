@@ -41,10 +41,10 @@ export default function WhyChooseUs() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="section-padding bg-gradient-luxury-soft relative overflow-hidden">
+    <section className="section-padding bg-gradient-luxury relative overflow-hidden">
       {/* Gradient Blobs */}
-      <div className="absolute top-40 right-20 w-96 h-96 bg-primary/6 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-primaryLight/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-20 left-20 w-96 h-96 bg-[#A855F7]/8 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-[#B07CF0]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -54,43 +54,49 @@ export default function WhyChooseUs() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-20"
         >
-          <p className="text-primary tracking-[0.3em] text-sm uppercase font-medium mb-6">Why Couples Choose Us</p>
+          <p className="text-[#5B21B6] tracking-[0.3em] text-sm uppercase font-semibold mb-6">Why Forever Moments</p>
           <SplitText
-            text="The Forever Difference"
+            text="The Art of Storytelling"
             className="font-heading text-5xl md:text-6xl lg:text-7xl font-light text-text mb-8"
             delay={0.1}
           />
           <p className="text-textLight max-w-2xl mx-auto text-lg leading-relaxed">
-            What makes couples keep recommending us.
+            We don&apos;t just document events. We craft heirlooms.
           </p>
         </motion.div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <GlowCard className="glass-card h-full hover:shadow-glow hover:-translate-y-2 transition-all duration-500 group">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-primaryDark flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-background" />
-                  </div>
-                  <h3 className="font-heading text-xl text-text mb-4 font-light">{feature.title}</h3>
-                  <p className="text-textLight leading-relaxed text-sm">{feature.description}</p>
-                </GlowCard>
-              </motion.div>
-            )
-          })}
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={{ y: -8, scale: 1.02 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.8, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="h-full"
+            >
+              <GlowCard className="glass-card bg-white/12 border-[rgba(255,255,255,0.30)] p-8 md:p-10 flex flex-col justify-between h-full shadow-luxury hover:shadow-luxury-lg transition-all duration-500">
+                <div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-16 h-16 rounded-full bg-gradient-to-r from-[#BA88F8] via-[#A855F7] to-[#8225D4] flex items-center justify-center mb-6 shadow-[0_6px_20px_rgba(168,85,247,0.35)]"
+                  >
+                    <feature.icon className="text-white w-7 h-7" />
+                  </motion.div>
+
+                  <h3 className="font-heading text-2xl text-text mb-4 font-medium">{feature.title}</h3>
+                  <p className="text-textLight text-base leading-relaxed">{feature.description}</p>
+                </div>
+              </GlowCard>
+            </motion.div>
+          ))}
         </div>
 
         {/* Stats */}
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div ref={ref} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 mt-20">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -125,10 +131,12 @@ export default function WhyChooseUs() {
           className="text-center"
         >
           <p className="font-heading text-xl sm:text-2xl md:text-3xl text-text italic max-w-3xl mx-auto leading-relaxed font-light px-4 sm:px-0">
-            "Every wedding is unique, and every couple deserves a visual narrative as extraordinary as their love story."
+            &ldquo;Every wedding is unique, and every couple deserves a visual narrative as extraordinary as their love story.&rdquo;
           </p>
         </motion.div>
       </div>
     </section>
   )
 }
+
+
